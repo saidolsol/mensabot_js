@@ -1,0 +1,17 @@
+help - Anleitung
+poly - Menü der Polymensa
+trailer - Menü des Foodtrailers
+asia - Menü der CLAusiusbar
+fusion - Menü der Fusionmensa
+foodlab - Menü des FoodLabs
+woka - Menü vom Woka
+tannenbar - Menü der Tannenbar
+grill - Menü vom food market grill bbQ
+pizzapasta - Menü vom food market pizza pasta
+green -  Menü food market green day
+dozentenfoyer - Menü des Dozentenfoyers
+klaras - Öffnungszeiten Klara's Kitchen
+hotpasta - Öffnungszeiten Hot Pasta
+beersnmore - Öffnungszeiten Beers'n More
+cc - Öffnungszeiten Curry Corner
+feedback - Sag uns was Du denkst!
