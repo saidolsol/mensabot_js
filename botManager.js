@@ -82,9 +82,7 @@ function processOnText(msg, match) {
             var t = 0;
         //Öffnungszeiten, help/start und how
         }else if(command in openingh){
-        resp = openingh[command];
-        }else if(command === 'start'){
-            command = 'help';
+            resp = openingh[command];
         //Mensa
         }else if(command in mensas){
                 

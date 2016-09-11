@@ -15,3 +15,4 @@ hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More
 cc - Öffnungszeiten Curry Corner
 feedback - Sag uns was Du denkst!
+how - So funktioniere ich
