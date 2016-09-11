@@ -12,16 +12,12 @@ function call_eth(){
     var get_ethabig = require('./get_ethabig')
     //URL für heute generieren
     var date =  new Date();
-
     if ((date.getDay() === 6) || (date.getDay() === 0)){
         return;
     }
-
     date = date.toISOString().split('T')[0];
-    console.log(date);
     var url_lunch = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/lunch';
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/dinner';
-    //console.log(url_lunch);
     //get_eth aufrufen
     get_ethabig.get_ethabig(url_dinner);
     get_eth.get_eth(url_lunch);
@@ -31,6 +27,7 @@ function call_eth(){
 call_eth();
 
 var token = variables['token'];
+
 // Setup polling way
 var bot = new TelegramBot(token, {polling: true});
 
