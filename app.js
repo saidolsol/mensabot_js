@@ -6,13 +6,6 @@ var botManager = require('./botManager');
 var schedule = require('node-schedule');
 var variables = require('./variables');
 
-//Soll sich darum kümmern, dass die Menüs sich jeden Tag updaten
-/*var rule = new schedule.RecurrenceRule();
-rule.dayOfWeek = [0, new schedule.Range(1, 5)];
-rule.hour = 3; 
-var j = schedule.scheduleJob(rule, call_eth());
-*/
-
 //Holt die Menüs der ETH-Mensen
 function call_eth(){
     var get_eth = require('./get_eth')
