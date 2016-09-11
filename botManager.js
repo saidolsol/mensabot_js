@@ -18,7 +18,7 @@ function processOnText(msg, match) {
         "pizzapasta" : "food market - pizza pasta"
     }
 
-    //Übersetzt den einfacheren Befehl zu dem String, als der die mensa gespeichert ist
+    //Übersetzt den einfacheren Befehl zum komplizierteren Mensanamen im JSON
     var dict = {
                 "cliff" : "Clausiusbar",
                 "haoyi" : "Woka",
@@ -62,34 +62,32 @@ function processOnText(msg, match) {
             chatId = respId;
         }
     }else{
-        //Der eigentliche Befehl wird vom @... getrennt   
+        //Chopping '@...' from the command if needed
         var command = match[1].split('@');
-
-        console.log(openingh);
-        console.log(command);
         command = command[0];
-
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
-        //Hat die mensa Abendessen und ist überhaupt schon Zeit für Abendessen?
+        //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
         if (command in dinner_dict && timestamp.getHours() >= 14){
             command = dinner_dict[command];
-            var mensas = require('./mensas_abig.json'); //-> Abendmenü wird geladen
+            var mensas = require('./mensas_abig.json');
             var t = 1;
-        //Wenn nicht: Mittagsmenü wird geladen
+        //Checking whether its a known cafeteria
         }else if (command in dict){
             command = dict[command];
             var mensas = require('./mensas.json');
             var t = 0;
-        //Öffnungszeiten, help/start und how
-        }else if(command in openingh){
+        //...help/start, opening hours
+        }
+        
+        if(command in openingh){
             resp = openingh[command];
         //Mensa
         }else if(command in mensas){
                 
-            //Ist Wochenende?
+            //Weekend?
             if(timestamp.getDay() === 6 || timestamp.getDay() === 0){
                 resp = "Heute haben leider alle Mensen geschlossen, sorry!";
-            //Wenn nicht, wird das Menü als Nachricht wie folgt verpackt:
+            //If weekday, wanted information is formatted as follows:
             }else{
                 resp = "*" + command + "*\n_Essen von " + mensas[command].hours.mealtime[t]["from"] +" bis " +mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
                 for (var meal in mensas[command]["meals"]){
