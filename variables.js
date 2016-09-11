@@ -1,5 +1,5 @@
 var variables = {
-    "token" : '<TEST>',
+    "token" : '<BOT TOKEN HERE>',
     "feedback_chatId" : <YOUR CHAT ID HERE>
 };
 
