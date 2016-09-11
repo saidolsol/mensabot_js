@@ -38,7 +38,6 @@ function call_eth(){
 call_eth();
 
 var token = variables['token'];
-console.log(token);
 // Setup polling way
 var bot = new TelegramBot(token, {polling: true});
 
