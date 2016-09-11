@@ -34,7 +34,6 @@ function processOnText(msg, match) {
                 "grill" : "food market - grill bbQ",
                 "pizzapasta" : "food market - pizza pasta",
                 "green" : "food market - green day",
-                "start" : "help"
         };
 
     console.log(msg);
@@ -81,10 +80,11 @@ function processOnText(msg, match) {
             command = dict[command];
             var mensas = require('./mensas.json');
             var t = 0;
-        //Öffnungszeiten 
+        //Öffnungszeiten, help/start und how
         }else if(command in openingh){
         resp = openingh[command];
-           
+        }else if(command === 'start'){
+            command = 'help';
         //Mensa
         }else if(command in mensas){
                 
