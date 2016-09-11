@@ -33,7 +33,8 @@ function processOnText(msg, match) {
                 "dozentenfoyer" : "Dozentenfoyer",
                 "grill" : "food market - grill bbQ",
                 "pizzapasta" : "food market - pizza pasta",
-                "green" : "food market - green day"
+                "green" : "food market - green day",
+                "start" : "help"
         };
 
     console.log(msg);
@@ -80,10 +81,6 @@ function processOnText(msg, match) {
             command = dict[command];
             var mensas = require('./mensas.json');
             var t = 0;
-        }
-        if (command === 'help' || command === 'start'){
-            resp = '*Verfügbare Mensen*:\nMensa Polyterasse: /poly \nFood Trailer: /trailer \nCLAusiusbar: /asia\nFusionmensa: /fusion \nFoodLAB: /foodlab\nWoka: /woka\nTannenbar: /tannenbar\nFood Market: /grill, /pizzapasta, /green\nDozentenfoyer: /dozentenfoyer\n\nDas Abendmenü wird, sofern verfügbar, automatisch ab 14:00 Uhr angezeigt.\n\n*Verfügbare Öffnungszeiten:*\n_Heute Morgen frisch gewürfelt!_\nKlara\'s Kitchen: /klaras \nBeers\'n\'More: /beersnmore\nHot Pasta: /hotpasta\nJimmy\'s Pizza: /jimmy\nCurry Corner: /cc  \n\n*Fragen oder Anregungen:*\n/feedback <Deine Nachricht>'
-            
         //Öffnungszeiten 
         }else if(command in openingh){
         resp = openingh[command];
