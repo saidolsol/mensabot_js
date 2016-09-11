@@ -14,5 +14,5 @@ klaras - Öffnungszeiten Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More
 cc - Öffnungszeiten Curry Corner
-feedback - Sag uns was Du denkst!
+feedback - Was hältste von mir?
 how - So funktioniere ich
