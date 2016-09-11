@@ -8,8 +8,6 @@ This is a bot for telegram, providing menus for selected cafeterias on and aroun
 
 Its main function is to get the menus from the ETH cafeterias. These are all available online as one single JSON file [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the file every day for the particular date and manipulates it a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. I set up a cronjob to restart the program every night to update the JSONs.
 
-The UZH cafeterias are a little more complicated, since they neither provide a convenient JSON file. It all has to be parsed from their homepage in HTML.
-
 The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always accurate.
 
 ### The feedback function
