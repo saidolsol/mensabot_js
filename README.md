@@ -15,8 +15,9 @@ The opening hours are saved as a string in an object and have to be edited manua
 
 ### The infrastructure
 
-It's running on node.js using [this](https://github.com/yagop/node-telegram-bot-api) library.
-I used to run the bot on gingeneers old laptop with a dynamic DNS and very little RAM. Now however, I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
+It's running on node.js using [this](https://github.com/yagop/node-telegram-bot-api) library. 
+
+I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
 
 ### The future
 
