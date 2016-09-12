@@ -93,7 +93,8 @@ function processOnText(msg, match) {
                 for (var meal in mensas[command]["meals"]){
                     var description = "";
                     for (i in mensas[command]["meals"][meal]["description"]){
-                        description += mensas[command]["meals"][meal]["description"][i]+ " " ;                            if (i === "0"){
+                        description += mensas[command]["meals"][meal]["description"][i]+ " " ;                            
+                        if (i === "0"){
                             description += "\n"; 
                         }
                     }
