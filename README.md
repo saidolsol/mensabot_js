@@ -11,7 +11,7 @@ A complete list of commands is saved in the [commands.txt](https://github.com/sa
 
 ### How it does it
 
-For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the file every day for the particular date and manipulates it a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. 
+For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the files (lunch and dinner separately) every day for the particular date and manipulates them a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. 
 
 If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menus of the other cafeterias remain unchanged.
 
