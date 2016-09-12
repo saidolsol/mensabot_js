@@ -89,20 +89,15 @@ function processOnText(msg, match) {
                 resp = "Heute haben leider alle Mensen geschlossen, sorry!";
             //If weekday, wanted information is formatted as follows:
             }else{
-                if (!(command in mensas)){
-                    resp = "*" + command + "*\n_Essen von " + mensas[command].hours.mealtime[t]["from"] +" bis " +mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
-                    for (var meal in mensas[command]["meals"]){
-                        var description = "";
-                        for (i in mensas[command]["meals"][meal]["description"]){
-                            description += mensas[command]["meals"][meal]["description"][i]+ " " ;
-                            if (i === "0"){
-                                description += "\n"; 
-                            }
+                resp = "*" + command + "*\n_Essen von " + mensas[command].hours.mealtime[t]["from"] +" bis " +mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
+                for (var meal in mensas[command]["meals"]){
+                    var description = "";
+                    for (i in mensas[command]["meals"][meal]["description"]){
+                        description += mensas[command]["meals"][meal]["description"][i]+ " " ;                            if (i === "0"){
+                            description += "\n"; 
                         }
-                        resp += "*" +mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"]+ "/" +mensas[command]["meals"][meal]["prices"]["staff"] +  "/" + mensas[command]["meals"][meal]["prices"]["extern"]+"):*\n" + description + "\n";
                     }
-                }else{
-                    resp = "Tut mir Leid, aber für diese Mensa ist momentan leider kein Menü verfügbar :(";
+                    resp += "*" +mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"]+ "/" +mensas[command]["meals"][meal]["prices"]["staff"] +  "/" + mensas[command]["meals"][meal]["prices"]["extern"]+"):*\n" + description + "\n";
                 }
             }
         }
