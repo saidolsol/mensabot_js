@@ -100,6 +100,9 @@ function processOnText(msg, match) {
                     }
                     resp += "*" +mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"]+ "/" +mensas[command]["meals"][meal]["prices"]["staff"] +  "/" + mensas[command]["meals"][meal]["prices"]["extern"]+"):*\n" + description + "\n";
                 }
+                if (resp === null){
+                    resp = "Tut mir Leid, aber es sieht so aus als gäbe es für diese Mensa heute leider kein Menü.";
+                }
             }
         }
 }
