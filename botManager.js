@@ -89,9 +89,6 @@ function processOnText(msg, match) {
                 resp = "Heute haben leider alle Mensen geschlossen, sorry!";
             //If weekday, wanted information is formatted as follows:
             }else{
-                //In case the cafeteria is closed 
-                resp = "Tut mir Leid, aber es sieht so aus als gäbe es für diese Mensa heute leider kein Menü.";
-                
                 resp = "*" + command + "*\n_Essen von " + mensas[command].hours.mealtime[t]["from"] +" bis " +mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
                 for (var meal in mensas[command]["meals"]){
                     var description = "";
