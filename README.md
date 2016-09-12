@@ -32,3 +32,5 @@ Functions to come:
 ### Why
 
 Procrastination.
+
+And it does indeed help figuring out where to get lunch when that's discussed in a group chat. 
