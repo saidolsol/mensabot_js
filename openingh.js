@@ -1,5 +1,3 @@
-
-//Eines schönen Tages vielleicht mit Google-API?
 var openingh ={
             "klaras":'*Öffnungszeiten Klara\'s Kitchen:* \nMo-Fr: 08:00 bis 18:30 Uhr\nSamstags und Sonntags geschlossen',
             "hotpasta":'*Öffnungszeiten Hot Pasta:* \nMo-Fr: 08:00 bis 24:00 Uhr\nSa: 11:00 bis 17:00 Uhr\nSonntags geschlossen',
