@@ -35,4 +35,4 @@ Functions to come:
 
 Procrastination.
 
-And it does indeed help figuring out where to get lunch when that's discussed in a group chat. 
+And it does indeed help to figure out where to get lunch. Especially when that's discussed in a group chat. 
