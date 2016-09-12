@@ -9,7 +9,11 @@ Currently, the bot can do the following:
 
 ### How it does it
 
-For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the file every day for the particular date and manipulates it a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. I set up a cronjob to restart the program every night to update the JSONs.
+For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the file every day for the particular date and manipulates it a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. 
+
+If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menus of the other cafeterias remain unchanged.
+
+I set up a cronjob to restart the program every night to update the JSONs.
 
 The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always accurate.
 
