@@ -3,7 +3,7 @@
 ### What it does
 
 Currently, the bot can do the following:
-* Provide the daily menu for ETH cafeterias
+* Provide the daily menu for all ETH cafeterias
 * Provide opening hours for different businesses around the ETH city campus
 * Collect feedback and allow me to reply to it
 
