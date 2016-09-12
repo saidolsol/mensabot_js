@@ -102,7 +102,7 @@ function processOnText(msg, match) {
                         resp += "*" +mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"]+ "/" +mensas[command]["meals"][meal]["prices"]["staff"] +  "/" + mensas[command]["meals"][meal]["prices"]["extern"]+"):*\n" + description + "\n";
                     }
                 }else{
-                    resp = "Tut mir Leid, für diese Mensa ist momentan leider kein Menü verfügbar :(";
+                    resp = "Tut mir Leid, aber für diese Mensa ist momentan leider kein Menü verfügbar :(";
                 }
             }
         }
