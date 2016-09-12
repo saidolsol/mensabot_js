@@ -7,6 +7,8 @@ Currently, the bot can do the following:
 * Provide opening hours for different businesses around the ETH city campus
 * Collect feedback and allow me to reply to it
 
+A complete list of commands is saved in the [commands.txt](https://github.com/saidolsol/mensabot_js/blob/master/commands.txt) file.
+
 ### How it does it
 
 For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the file every day for the particular date and manipulates it a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. 
