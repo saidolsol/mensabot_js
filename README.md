@@ -1,6 +1,6 @@
 # Mensabot Zürich by saidolsol and gingeneer
 
-__This is a german speaking chat bot for the messenger app [Telegram](https://telegram.org). It was created to provide users with menus of all cafeterias on the ETH and UZH campuses in Zürich. Although this does work for ETH cafeterias, it turned out to be a little more difficult for the UZH cafeterias.__
+This is a german speaking chat bot for the messenger app [Telegram](https://telegram.org). It was created to provide users with menus of all cafeterias on the ETH and UZH campuses in Zürich. Although this does work for ETH cafeterias, it turned out to be a little more difficult for the UZH cafeterias.
 
 ### What it does
 
