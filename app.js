@@ -1,9 +1,6 @@
 var TelegramBot = require('node-telegram-bot-api'); 
 var fs = require('fs');
-var https = require('https');
-var request = require('request');
 var botManager = require('./botManager');
-var schedule = require('node-schedule');
 var variables = require('./variables');
 
 //Holt die Menüs der ETH-Mensen
