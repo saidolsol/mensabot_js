@@ -12,13 +12,13 @@ function processOnText(msg, match) {
     var chatId = msg.chat.id;
 
 
-    //Mensas, die Abendessen Haben
+    //Cafeterias serving dinner
     var dinner_dict = {
         "poly" : "Mensa Polyterrasse",
         "pizzapasta" : "food market - pizza pasta"
     }
 
-    //Übersetzt den einfacheren Befehl zum komplizierteren Mensanamen im JSON
+    //Translates the simple command to the often more complex name of the cafeteria in the JSON file
     var dict = {
                 "cliff" : "Clausiusbar",
                 "haoyi" : "Woka",
