@@ -36,7 +36,6 @@ function processOnText(msg, match) {
         "green" : "food market - green day",
     };
     
-    });
     //Feedback
     if(match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
         if (match[0] === '/feedback'){
