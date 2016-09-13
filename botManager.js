@@ -20,26 +20,22 @@ function processOnText(msg, match) {
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
     var dict = {
-                "cliff" : "Clausiusbar",
-                "haoyi" : "Woka",
-                "poly" : "Mensa Polyterrasse",
-                "foodlab" : "foodLAB",
-                "clausiusbar" : "Clausiusbar",
-                "asia" : "Clausiusbar",
-                "fusion" : "FUSION meal",
-                "woka" : "Woka",
-                "tannenbar" : "Tannenbar",
-                "trailer" : "Foodtrailer ETZ",
-                "dozentenfoyer" : "Dozentenfoyer",
-                "grill" : "food market - grill bbQ",
-                "pizzapasta" : "food market - pizza pasta",
-                "green" : "food market - green day",
-        };
-
-    console.log(msg);
-    console.log(JSON.stringify(match));
-    fs.appendFile('logs/requests.log', separator + timestamp + '\n\n' + JSON.stringify(msg) + '\n' + separator, function (err) {
-        console.log(err);
+        "cliff" : "Clausiusbar",
+        "haoyi" : "Woka",
+        "poly" : "Mensa Polyterrasse",
+        "foodlab" : "foodLAB",
+        "clausiusbar" : "Clausiusbar",
+        "asia" : "Clausiusbar",
+        "fusion" : "FUSION meal",
+        "woka" : "Woka",
+        "tannenbar" : "Tannenbar",
+        "trailer" : "Foodtrailer ETZ",
+        "dozentenfoyer" : "Dozentenfoyer",
+        "grill" : "food market - grill bbQ",
+        "pizzapasta" : "food market - pizza pasta",
+        "green" : "food market - green day",
+    };
+    
     });
     //Feedback
     if(match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
