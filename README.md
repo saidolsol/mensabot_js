@@ -19,7 +19,7 @@ If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menu
 
 I set up a cronjob to restart the program every night to update the JSONs.
 
-The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always accurate.
+The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always up to date.
 
 ### The infrastructure
 
