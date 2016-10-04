@@ -34,7 +34,16 @@ function processOnText(msg, match) {
         "grill" : "food market - grill bbQ",
         "pizzapasta" : "food market - pizza pasta",
         "green" : "food market - green day",
+        'uni-unten': 'uni-unten',
+        'uni-oben': 'uni-oben',
+        'lichthof': 'lichthof',
+        'irchel': 'irchel',
+        'zahnarzt': 'zahnarzt',
+        'tierspital': 'tierspital',
+        'platte': 'platte'
     };
+
+    }
     
     //Feedback
     if(match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
