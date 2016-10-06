@@ -1,5 +1,5 @@
 var TelegramBot = require('node-telegram-bot-api'); 
-//var fs = require('fs');
+var fs = require('fs');
 var botManager = require('./botManager.js');
 var variables = require('./variables');
 
@@ -31,29 +31,29 @@ call_eth();
 var token = variables['token'];
 
 // Setup polling way
-var bot = new TelegramBot(token, {polling: true});
+var bot = new TelegramBot('196640874:AAHdQnc3F0f97H0VyFPfv87XpJS48WwBfsg', {polling: true});
 
 //Das hier passiert sobald der Bot eine Nachricht bekommt:
-// bot.onText(/\/(.+)/, function (msg, match) {
+bot.onText(/\/(.+)/, function (msg, match) {
 
-//     console.log('onText: ');
-//     var messageToSend = botManager.processOnText(msg, match);
+    console.log('onText: ');
+    var messageToSend = botManager.processOnText(msg, match);
     
-//     console.log(messageToSend);
+    console.log(messageToSend);
     
-//     for(var i=0;i<messageToSend.length;i++) {
+    for(var i=0;i<messageToSend.length;i++) {
         
-//         var message = messageToSend[i];
+        var message = messageToSend[i];
         
-//         console.log(message);
+        console.log(message);
         
-//         bot.sendMessage(message.chatId, message.message, message.options).then(function(message) {
-//             console.log('Message sent');
-//             i++;
-//         }, function(error) {
-//             console.log('Error: ' + error);
-//             i++;
-//         });
-//     }
-// });
+        bot.sendMessage(message.chatId, message.message, message.options).then(function(message) {
+            console.log('Message sent');
+            i++;
+        }, function(error) {
+            console.log('Error: ' + error);
+            i++;
+        });
+    }
+});
 
