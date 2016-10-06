@@ -101,6 +101,10 @@ function makeObject(body, isDinner, mensaName) {
                 {
                     "from": "11:00",
                     "to": "14:30"
+                },
+                {
+                    "from": "17:00",
+                    "to": "19:0"
                 }
             ]
         },
