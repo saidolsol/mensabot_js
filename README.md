@@ -30,7 +30,7 @@ I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch
 ### The future
 
 Functions to come:
-* Menus of the UZH cafeterias (HTML parsing necessary)
+~~* Menus of the UZH cafeterias (HTML parsing necessary)~~
 * Filling level of the vending machine in the student's lounge
 
 ### Why
