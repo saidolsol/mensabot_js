@@ -15,7 +15,13 @@ function processOnText(msg, match) {
     //Cafeterias serving dinner
     var dinner_dict = {
         "poly": "Mensa Polyterrasse",
-        "pizzapasta": "food market - pizza pasta"
+        "pizzapasta": "food market - pizza pasta",
+        "green": "food market - green day",
+        "grill": 'food market - grill bbQ',
+        "fusion": "FUSION coffee",
+        "irchel": "irchel",
+        "uniunten": "uni-unten",
+        "unia": "uni-unten"
     }
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
@@ -35,7 +41,9 @@ function processOnText(msg, match) {
         "pizzapasta": "food market - pizza pasta",
         "green": "food market - green day",
         'uniunten': 'uni-unten',
+        'unia': 'uni-unten',
         'unioben': 'uni-oben',
+        'unib': 'uni-oben',
         'lichthof': 'lichthof',
         'irchel': 'irchel',
         'zahnarzt': 'zahnarzt',
