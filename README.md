@@ -1,11 +1,11 @@
 # Mensabot Zürich by saidolsol and gingeneer
 
-This is a german speaking chat bot for the messenger app [Telegram](https://telegram.org). It was created to provide users with menus of all cafeterias on the ETH and UZH campuses in Zürich. Although this does work for ETH cafeterias, it turned out to be a little more difficult for the UZH cafeterias.
+This is a german speaking chat bot for the messenger app [Telegram](https://telegram.org). It was created to provide users with menus of all cafeterias on the ETH and UZH campuses in Zürich. Although this does work for ETH cafeterias, it turned out to be a little more difficult for the UZH cafeterias. We got it working with UZH mensas, but it just parses the html of the UZH website, so will break if they change anythin on the site.
 
 ### What it does
 
 Currently, the bot can do the following:
-* Provide the daily menu for all ETH cafeterias
+* Provide the daily menu for all ETH and UZH cafeterias
 * Provide opening hours for different businesses around the ETH city campus
 * Collect feedback and allow me to reply to it
 
@@ -14,6 +14,8 @@ A complete list of commands is saved in the [commands.txt](https://github.com/sa
 ### How it does it
 
 For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the files (lunch and dinner separately) every day for the particular date and manipulates them a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. 
+
+For the cafeterias of UZH, We parse the html of the unis website, which is not a good solution, since it can break really fast if they chage anything. The alternative would be to get the data from the PDF file which the uni provides, but that seamed even more difficult than parsing the website (not to mention it can break just as fast).
 
 If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menus of the other cafeterias remain unchanged.
 
@@ -30,7 +32,7 @@ I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch
 ### The future
 
 Functions to come:
-* ~~Menus of the UZH cafeterias (HTML parsing necessary)~~
+* Adding opening hours of UZH Mensas
 * Filling level of the vending machine in the student's lounge
 
 ### Why
