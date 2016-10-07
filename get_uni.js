@@ -144,9 +144,11 @@ function makeObject(body, isDinner, mensaName) {
                 currentMeal.prices.student = priceArray[0];
                 currentMeal.prices.staff = priceArray[1];
                 currentMeal.prices.extern = priceArray[2];
-
+                currentMeal.label = splitted[0].trim();
+            } else{
+                currentMeal.label = nodes[i].data;
             }
-            currentMeal.label = splitted[0].trim();
+            
 
         }
         else if (nodes[i].parentNode.localName === "span") {
