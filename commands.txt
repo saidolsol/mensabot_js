@@ -10,6 +10,13 @@ grill - Menü vom food market grill bbQ
 pizzapasta - Menü vom food market pizza pasta
 green -  Menü food market green day
 dozentenfoyer - Menü des Dozentenfoyers
+uniunten - UZH untere Mensa a
+unioben - UZH obere Mensa b
+lichthof - UZH Lichthof Rondell
+irchel - UZH irchel
+tierspital - UZH Tirespital
+zahnarzt - UZH Zentrum für Zahnmedizin
+platte - UZH Plattenstrasse
 klaras - Öffnungszeiten Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More

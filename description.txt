@@ -1,4 +1,4 @@
-Von mir bekommst du die Menüpläne aller ETH (irgendwann auch UZH) Mensen, sowie die Öffnungszeiten zu ausgewählten Geschäften im Zentrum.
+Von mir bekommst du die Menüpläne aller ETH und UZH Mensen, sowie die Öffnungszeiten zu ausgewählten Geschäften im Zentrum.
 
 Eine Liste der Befehle kriegst Du mit /help. Für alles weitere:
 /feedback <Deine Nachricht>
