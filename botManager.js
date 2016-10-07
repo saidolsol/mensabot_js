@@ -99,7 +99,10 @@ function processOnText(msg, match) {
                 resp = "Heute haben leider alle Mensen geschlossen, sorry!";
                 //If weekday, wanted information is formatted as follows:
             } else {
-                resp = "*" + command + "*\n_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
+                resp = "*" + command + "*\n";
+                if (!mensas[command].hours.mealtime[t]['hardcoded']) {
+                    resp += "n_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
+                }
                 for (var meal in mensas[command]["meals"]) {
                     var description = "";
                     for (i in mensas[command]["meals"][meal]["description"]) {
@@ -108,7 +111,12 @@ function processOnText(msg, match) {
                             description += "\n";
                         }
                     }
-                    resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description + "\n";
+                    if (mensas[command]['meals'][meal]['prices']['student'] == undefined) {
+                        resp += "*" + mensas[command]["meals"][meal]["label"] + ":*\n" + description + "\n";
+                    } else {
+                        resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description + "\n";
+                    }
+
                 }
             }
         }

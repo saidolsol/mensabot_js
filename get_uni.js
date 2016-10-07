@@ -99,12 +99,14 @@ function makeObject(body, isDinner, mensaName) {
             ],
             "mealtime": [
                 {
-                    "from": "11:00",
-                    "to": "14:30"
+                    "hardcoded": true,
+                    "from": "lunch",
+                    "to": "later"
                 },
                 {
-                    "from": "17:00",
-                    "to": "19:0"
+                    "hardcoded": true,
+                    "from": "dinner",
+                    "to": "later"
                 }
             ]
         },
