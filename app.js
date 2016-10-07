@@ -31,7 +31,7 @@ call_eth();
 var token = variables['token'];
 
 // Setup polling way
-var bot = new TelegramBot('196640874:AAHdQnc3F0f97H0VyFPfv87XpJS48WwBfsg', {polling: true});
+var bot = new TelegramBot(token, {polling: true});
 
 //Das hier passiert sobald der Bot eine Nachricht bekommt:
 bot.onText(/\/(.+)/, function (msg, match) {
