@@ -2,7 +2,7 @@ var request = require('request')
 var fs = require('fs');
 
 
-function get_ethabig(url){
+function get_ethabig(url, url_lunch){
 
     request(
         {
@@ -24,7 +24,8 @@ function get_ethabig(url){
                 fs.appendFileSync("mensas_abig.json",to_write);
             }
             fs.appendFileSync("mensas_abig.json", "\"" + body[l-1].mensa + "\":"+JSON.stringify(body[l-1]) + "}");
-
+            get_eth = require("./get_eth");
+            get_eth.get_eth(url_lunch);
         });
 };
 module.exports.get_ethabig = get_ethabig;

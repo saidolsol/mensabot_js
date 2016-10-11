@@ -5,7 +5,7 @@ var variables = require('./variables');
 
 //Holt die Menüs der ETH-Mensen
 function call_eth(){
-    var get_eth = require('./get_eth');
+    // var get_eth = require('./get_eth');
     var get_ethabig = require('./get_ethabig');
     // var get_uni = require('./get_uni');
     //URL für heute generieren
@@ -17,10 +17,10 @@ function call_eth(){
     var url_lunch = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/lunch';
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/dinner';
     //get_eth aufrufen
-    get_ethabig.get_ethabig(url_dinner);
+    get_ethabig.get_ethabig(url_dinner, url_lunch);
     console.log('got eth dinner');
-    get_eth.get_eth(url_lunch);
-    console.log('got eth');
+    // get_eth.get_eth(url_lunch);
+    // console.log('got eth');
     // get_uni.get_uni();
     // console.log('got uni');
 }
