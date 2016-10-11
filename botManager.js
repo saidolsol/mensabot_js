@@ -63,7 +63,7 @@ function processOnText(msg, match) {
             });
             resp = 'Vielen Dank für Dein Feedback!';
 
-            messagesToSend.push({ chatId: -106064170, message: 'New feedback:\n\n' + JSON.stringify(msg) });
+            messagesToSend.push({ chatId: feedback_chatId, message: 'New feedback:\n\n' + JSON.stringify(msg) });
         } else if (match[0].indexOf('/respond') != -1) {
 
             resp = match[0].split('respond');
