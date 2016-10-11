@@ -12,11 +12,7 @@ function get_ethabig(url){
             console.log(error);
             console.log(response);
             
-            fs.writeFile("mensas_abig.json","{" ,function(err){
-                    if(err) {
-                        return console.log(err);
-                    }
-            });
+            fs.writeFileSync("mensas_abig.json","{");
 
             var to_write = ""; 
             //console.log(body);
@@ -25,17 +21,9 @@ function get_ethabig(url){
             var l = body.length;
             for (var i = 0; i < l-1; i++) {
                 to_write = "\"" + body[i].mensa + "\":"+JSON.stringify(body[i]) + ",";
-                fs.appendFile("mensas_abig.json",to_write ,function(err){
-                    if(err) {
-                        return console.log(err);
-                    }
-                });
+                fs.appendFileSync("mensas_abig.json",to_write);
             }
-            fs.appendFile("mensas_abig.json", "\"" + body[l-1].mensa + "\":"+JSON.stringify(body[l-1]) + "}",function(err){
-                    if(err) {
-                        return console.log(err);
-                    }
-                });
+            fs.appendFileSync("mensas_abig.json", "\"" + body[l-1].mensa + "\":"+JSON.stringify(body[l-1]) + "}");
 
         });
 };

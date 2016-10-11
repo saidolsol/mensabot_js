@@ -7,7 +7,7 @@ var variables = require('./variables');
 function call_eth(){
     var get_eth = require('./get_eth');
     var get_ethabig = require('./get_ethabig');
-    var get_uni = require('./get_uni');
+    // var get_uni = require('./get_uni');
     //URL für heute generieren
     var date =  new Date();
     if ((date.getDay() === 6) || (date.getDay() === 0)){
@@ -21,8 +21,8 @@ function call_eth(){
     console.log('got eth dinner');
     get_eth.get_eth(url_lunch);
     console.log('got eth');
-    get_uni.get_uni();
-    console.log('got uni');
+    // get_uni.get_uni();
+    // console.log('got uni');
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden

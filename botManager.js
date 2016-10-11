@@ -102,7 +102,10 @@ function processOnText(msg, match) {
                 resp = "*" + command + "*\n";
                 if (!mensas[command].hours.mealtime[t]['hardcoded']) {
                     resp += "_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
+                } else{
+                    resp += "\n";
                 }
+                
                 for (var meal in mensas[command]["meals"]) {
                     var description = "";
                     for (i in mensas[command]["meals"][meal]["description"]) {

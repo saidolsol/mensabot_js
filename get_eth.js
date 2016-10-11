@@ -24,8 +24,8 @@ function get_eth(url) {
                 fs.appendFileSync("mensas.json", to_write);
             }
             fs.appendFileSync("mensas.json", "\"" + body[l - 1].mensa + "\":" + JSON.stringify(body[l - 1]) + "}");
-            //var get_uni = require('./get_uni');
-            //get_uni.get_uni();
+            var get_uni = require('./get_uni');
+            get_uni.get_uni();
 
         });
 };

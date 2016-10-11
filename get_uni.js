@@ -121,12 +121,7 @@ function makeObject(body, isDinner, mensaName) {
         "prices": {}
     };
     for (var i = 0; i < nodes.length; i++) {
-        //console.log(nodes[i].data);
-        if (nodes[i].data === "Öffnungszeiten") {
-            thisMensa.meals.push(currentMeal);
 
-            break;
-        }
         if (nodes[i].parentNode.localName === "h3") {
 
             if (i != 0) {
@@ -136,19 +131,7 @@ function makeObject(body, isDinner, mensaName) {
                     "prices": {}
                 };
             }
-
-            if (nodes[i].data.includes('CHF')) {
-                splitted = nodes[i].data.split('| ');
-                splitted[1] = splitted[1].replace(/CHF\s/gm, "");
-                priceArray = splitted[1].split(' / ');
-                currentMeal.prices.student = priceArray[0];
-                currentMeal.prices.staff = priceArray[1];
-                currentMeal.prices.extern = priceArray[2];
-                currentMeal.label = splitted[0].trim();
-            } else{
-                currentMeal.label = nodes[i].data;
-            }
-            
+            currentMeal.label = nodes[i].data;
 
         }
         else if (nodes[i].parentNode.localName === "span") {
@@ -158,6 +141,7 @@ function makeObject(body, isDinner, mensaName) {
             currentMeal.description.push(nodes[i].data);
         }
     }
+    thisMensa.meals.push(currentMeal);
     if (isDinner) {
         mensas_abig[mensaName] = thisMensa;
     } else {
