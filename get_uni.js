@@ -39,7 +39,7 @@ function get_uni() {
                     removeRefererHeader: true,
                     url: url,
                     followAllRedirects: true,
-                    encoding: 'binary'
+                    //encoding: 'binary'
                     //json: true
                 }, function (error, response, body) {
                     makeObject(body, false, mensaName);
@@ -59,7 +59,7 @@ function get_uni() {
                     removeRefererHeader: true,
                     url: url,
                     followAllRedirects: true,
-                    encoding: 'binary'
+                    //encoding: 'binary'
                     //json: true
                 }, function (error, response, body) {
                     makeObject(body, true, mensaName);
