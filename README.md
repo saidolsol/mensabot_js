@@ -32,11 +32,10 @@ I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch
 ### The future
 
 Functions to come:
-* Adding opening hours of UZH Mensas
 * Filling level of the vending machine in the student's lounge
 
 ### Why
 
 Procrastination.
 
-And it does indeed help to figure out where to get lunch. Especially when that's discussed in a group chat. 
+And it does indeed help to figure out where to get lunch.
