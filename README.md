@@ -13,7 +13,9 @@ A complete list of commands is saved in the [commands.txt](https://github.com/sa
 
 ### How it does it
 
-For its main function, providing the cafeteria menus, the bot uses a JSON containing all relevant information put online by the ETH  [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). The bot downloads the files (lunch and dinner separately) every day for the particular date and manipulates them a little bit. On request, the bot then reads the wanted information from the JSON and passes it on to the user. 
+The bot is divided into three main parts. The botManager, that takes care of the message and gives the appropriate response, the get-functions, that provide the menus and the app.js file, which puts all the pieces together.
+
+In order to get the menus for the ETH cafeterias, the bot uses a JSON containing all relevant information put online by the ETH itself [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). 
 
 For the cafeterias of UZH, We parse the html of the unis website, which is not a good solution, since it can break really fast if they chage anything. The alternative would be to get the data from the PDF file which the uni provides, but that seamed even more difficult than parsing the website (not to mention it can break just as fast).
 
