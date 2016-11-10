@@ -9,18 +9,18 @@ var mensas_abig = require('./mensas_abig.json')
 
 function get_uni() {
     var urls = {
-        'uni-unten': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a/',
-        'uni-oben': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-b/',
-        'lichthof': 'http://www.mensa.uzh.ch/de/menueplaene/lichthof-rondell/',
-        'irchel': 'http://www.mensa.uzh.ch/de/menueplaene/mensa-uzh-irchel/',
-        'tierspital': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-tierspital/',
-        'zahnarzt': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-zzm/',
-        'platte': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-plattenstrasse/',
-        'rämi': 'http://www.mensa.uzh.ch/de/menueplaene/raemi59/'
+        'UZH untere Mensa A': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a/',
+        'UZH obere Mensa B': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-b/',
+        'UZH Lichthof': 'http://www.mensa.uzh.ch/de/menueplaene/lichthof-rondell/',
+        'UZH Irchel': 'http://www.mensa.uzh.ch/de/menueplaene/mensa-uzh-irchel/',
+        'UZH Tierspital': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-tierspital/',
+        'UZH Zentrum Für Zahnmedizin': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-zzm/',
+        'UZH Platte': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-plattenstrasse/',
+        'UZH Rämi 59 (vegan)': 'http://www.mensa.uzh.ch/de/menueplaene/raemi59/'
     };
     var urls_abig = {
-        'uni-unten': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a-abend/',
-        'irchel': 'http://www.mensa.uzh.ch/de/menueplaene/irchel-cafeteria-seerose-abend/'
+        'UZH untere Mensa A (abend)': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a-abend/',
+        'UZH Irchel (abend)': 'http://www.mensa.uzh.ch/de/menueplaene/irchel-cafeteria-seerose-abend/'
     }
     var weekdays = ['', 'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag'];
     var d = new Date();
@@ -79,7 +79,7 @@ function makeObject(body, isDinner, mensaName) {
     var nodes = select("//x:div[@class='mod mod-newslist']/x:ul/x:li/x:div/x:div//text()", doc);
     for (var i = nodes.length - 1; i >= 0; i--) {
         // remove all the fucking white spaces of this shitty html
-        nodes[i].data = nodes[i].data.replace(/(\r\n|\n|\r)/gm, "");
+        //nodes[i].data = nodes[i].data.replace(/(\r\n|\n|\r)/gm, "");
         nodes[i].data = nodes[i].data.trim();
         if (nodes[i].data == "") {
             nodes.splice(i, 1);
@@ -133,10 +133,9 @@ function makeObject(body, isDinner, mensaName) {
                 };
             }
             currentMeal.label = nodes[i].data;
-
         }
         else if (nodes[i].parentNode.localName === "span") {
-
+            currentMeal.label += nodes[i].data;
         }
         else if (nodes[i].parentNode.localName === "p") {
             currentMeal.description.push(nodes[i].data);

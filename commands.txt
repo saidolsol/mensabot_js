@@ -17,6 +17,7 @@ irchel - UZH irchel
 tierspital - UZH Tirespital
 zahnarzt - UZH Zentrum für Zahnmedizin
 platte - UZH Plattenstrasse
+raemi - UZH Rämi 59 (vegan)
 klaras - Öffnungszeiten Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More

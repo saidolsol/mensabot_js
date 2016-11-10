@@ -19,9 +19,9 @@ function processOnText(msg, match) {
         "green": "food market - green day",
         "grill": 'food market - grill bbQ',
         "fusion": "FUSION coffee",
-        "irchel": "irchel",
-        "uniunten": "uni-unten",
-        "unia": "uni-unten"
+        "irchel": "UZH Irchel (abend)",
+        "uniunten": "UZH untere Mensa A (abend)",
+        "unia": "UZH untere Mensa A (abend)"
     }
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
@@ -40,16 +40,16 @@ function processOnText(msg, match) {
         "grill": "food market - grill bbQ",
         "pizzapasta": "food market - pizza pasta",
         "green": "food market - green day",
-        'uniunten': 'uni-unten',
-        'unia': 'uni-unten',
-        'unioben': 'uni-oben',
-        'unib': 'uni-oben',
-        'lichthof': 'lichthof',
-        'irchel': 'irchel',
-        'zahnarzt': 'zahnarzt',
-        'tierspital': 'tierspital',
-        'platte': 'platte',
-        'rämi': 'rämi'
+        'uniunten': 'UZH untere Mensa A',
+        'unia': 'UZH untere Mensa A',
+        'unioben': 'UZH obere Mensa B',
+        'unib': 'UZH obere Mensa B',
+        'lichthof': 'UZH Lichthof',
+        'irchel': 'UZH Irchel',
+        'zahnarzt': 'UZH Zentrum Für Zahnmedizin',
+        'tierspital': 'UZH Tierspital',
+        'platte': 'UZH Platte',
+        'raemi': 'UZH Rämi 59 (vegan)'
     };
 
     //Feedback
