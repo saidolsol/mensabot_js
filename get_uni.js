@@ -15,7 +15,8 @@ function get_uni() {
         'irchel': 'http://www.mensa.uzh.ch/de/menueplaene/mensa-uzh-irchel/',
         'tierspital': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-tierspital/',
         'zahnarzt': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-zzm/',
-        'platte': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-plattenstrasse/'
+        'platte': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-plattenstrasse/',
+        'rämi': 'http://www.mensa.uzh.ch/de/menueplaene/raemi59/'
     };
     var urls_abig = {
         'uni-unten': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a-abend/',

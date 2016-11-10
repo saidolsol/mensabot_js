@@ -48,7 +48,8 @@ function processOnText(msg, match) {
         'irchel': 'irchel',
         'zahnarzt': 'zahnarzt',
         'tierspital': 'tierspital',
-        'platte': 'platte'
+        'platte': 'platte',
+        'rämi': 'rämi'
     };
 
     //Feedback
