@@ -54,7 +54,7 @@ function processOnText(msg, match) {
 
     //Feedback
     if (match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
-        if (match[0] === '/feedback') {
+        if (match[0] === '/feedback' || match[0] === '/feedback@zurimensen_bot') {
             resp = '*Feedback für Dummies:*\n/feedback <Deine Nachricht>';
 
         } else if (match[0].indexOf('/feedback') != -1) {
@@ -78,7 +78,7 @@ function processOnText(msg, match) {
         command = command[0];
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
         //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
-        if (command in dinner_dict && timestamp.getHours() >= 20) {
+        if (command in dinner_dict && timestamp.getHours() >= 14) {
             command = dinner_dict[command];
             var mensas = require('./mensas_abig.json');
             var t = 1;
