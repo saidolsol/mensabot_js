@@ -78,7 +78,7 @@ function processOnText(msg, match) {
         command = command[0];
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
         //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
-        if (command in dinner_dict && timestamp.getHours() >= 14) {
+        if (command in dinner_dict && timestamp.getHours() >= 20) {
             command = dinner_dict[command];
             var mensas = require('./mensas_abig.json');
             var t = 1;
@@ -125,6 +125,10 @@ function processOnText(msg, match) {
             }
         }
     }
+
+    //dirty hack to remove ` in file because of errors with Markdown
+    //sometimes they have ` in their menu, replace it with '
+    resp = resp.replace(/`/g, '\'');
 
     messagesToSend.push({ chatId: chatId, message: resp, options: { parse_mode: 'Markdown' } });
 

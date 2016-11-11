@@ -44,6 +44,7 @@ bot.onText(/\/(.+)/, function (msg, match) {
     for(var i=0;i<messageToSend.length;i++) {
         
         var message = messageToSend[i];
+
         
         console.log(message);
         
