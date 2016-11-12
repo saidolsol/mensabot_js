@@ -53,6 +53,8 @@ bot.onText(/\/(.+)/, function (msg, match) {
             i++;
         }, function(error) {
             console.log('Error: ' + error);
+
+            // it happens that the message fails because of an invalid markdown, so just send it again as normal text (yse it is ugly)
             bot.sendMessage(message.chatId, message.message).then(function(message) {
                 console.log('Message sent without markdown');
             }, function(error) {
