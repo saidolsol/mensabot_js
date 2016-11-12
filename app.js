@@ -53,6 +53,11 @@ bot.onText(/\/(.+)/, function (msg, match) {
             i++;
         }, function(error) {
             console.log('Error: ' + error);
+            bot.sendMessage(message.chatId, message.message).then(function(message) {
+                console.log('Message sent without markdown');
+            }, function(error) {
+                console.log('Failed even without markdown. Error: ' + error);
+            });
             i++;
         });
     }
