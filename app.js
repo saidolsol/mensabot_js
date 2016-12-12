@@ -2,12 +2,11 @@ var TelegramBot = require('node-telegram-bot-api');
 var fs = require('fs');
 var botManager = require('./botManager.js');
 var variables = require('./variables');
+var botan = require('botanio')(variables.botan_token);
 
-//Holt die Menüs der ETH-Mensen
+//Holt die Menüs der ETH- und Uni Mensen
 function call_eth(){
-    // var get_eth = require('./get_eth');
     var get_ethabig = require('./get_ethabig');
-    // var get_uni = require('./get_uni');
     //URL für heute generieren
     var date =  new Date();
     if ((date.getDay() === 6) || (date.getDay() === 0)){
@@ -16,13 +15,9 @@ function call_eth(){
     date = date.toISOString().split('T')[0];
     var url_lunch = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/lunch';
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/dinner';
-    //get_eth aufrufen
+    //call eth menu, which denn calls uni
     get_ethabig.get_ethabig(url_dinner, url_lunch);
     console.log('got eth dinner');
-    // get_eth.get_eth(url_lunch);
-    // console.log('got eth');
-    // get_uni.get_uni();
-    // console.log('got uni');
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
@@ -37,6 +32,7 @@ var bot = new TelegramBot(token, {polling: true});
 bot.onText(/\/(.+)/, function (msg, match) {
 
     console.log('onText: ');
+    botan.track(msg, match[1].split('@')[0]);
     var messageToSend = botManager.processOnText(msg, match);
     
     console.log(messageToSend);
@@ -48,6 +44,7 @@ bot.onText(/\/(.+)/, function (msg, match) {
         
         console.log(message);
         
+
         bot.sendMessage(message.chatId, message.message, message.options).then(function(message) {
             console.log('Message sent');
             i++;
