@@ -4,3 +4,6 @@ mensas_abig.json
 node_modules/*
 variables.js
 logs/*
+*.sh
+nohup.out
+mensa_pid.txt
