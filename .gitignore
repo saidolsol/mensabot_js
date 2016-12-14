@@ -1,0 +1,6 @@
+.vscode/*
+mensas.json
+mensas_abig.json
+node_modules/*
+variables.js
+logs/*
