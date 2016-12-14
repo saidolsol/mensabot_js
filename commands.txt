@@ -24,3 +24,8 @@ beersnmore - Öffnungszeiten Beers'n More
 cc - Öffnungszeiten Curry Corner
 feedback - Was hältste von mir?
 how - So funktioniere ich
+polysnack - polysnack
+gessbar - G-ESSbar
+alumni - Alumni quattro Lounge
+unipoint - Öffnungszeiten Döner Unipoint
+coop - Öffnungszeiten coop Haldenbach
