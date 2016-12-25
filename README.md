@@ -27,7 +27,7 @@ The opening hours are saved as a string in an object and have to be edited manua
 
 If a user asks for a menu during the weekends, the bot will simply respond that there are no cafeterias opened. This is generally true, although this could be handled more elegantly.
 
-Also, we use (Botan)[http://botan.io/] for analytics. But don't worry, we do not pass on any sensible data to third parties.
+Also, we use [Botan](http://botan.io/) for analytics. But don't worry, we do not pass on any sensible data to third parties.
 
 ### The infrastructure
 
