@@ -6,7 +6,7 @@ This is a german speaking chat bot for the messenger app [Telegram](https://tele
 
 Currently, the bot can do the following:
 * Provide the daily menu for all ETH and UZH cafeterias
-* Provide opening hours for different businesses around the ETH city campus
+* Provide opening hours for different businesses around the ETH campuses City and Höggerberg
 * Collect feedback and allow us to reply to it
 
 A complete list of commands is saved in the [commands.txt](https://github.com/saidolsol/mensabot_js/blob/master/commands.txt) file.
