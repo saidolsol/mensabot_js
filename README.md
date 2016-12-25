@@ -13,7 +13,7 @@ A complete list of commands is saved in the [commands.txt](https://github.com/sa
 
 ### How it does it
 
-The bot is divided into three main parts. There is the botManager, that takes care of the message and gives the appropriate response. Then there are the get-functions, that provide the menus and finally there's the app.js file, which puts all the pieces together.
+The bot is divided into three main parts. There is the botManager, that takes care of the message and gives the appropriate response. Then there are the get-functions, that provide the menus and finally there's the mensabot.js file, which puts all the pieces together.
 
 In order to get the menus for the ETH cafeterias, the bot uses a JSON containing all relevant information put online by the ETH itself [(example lunch menu, 2016-06-06)](https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/2016-06-06/lunch). 
 
@@ -27,9 +27,9 @@ The opening hours are saved as a string in an object and have to be edited manua
 
 If a user asks for a menu during the weekends, the bot will simply respond that there are no cafeterias opened. This is generally true, although this could be handled more elegantly.
 
-### The infrastructure
+Also, we use (Botan)[http://botan.io/] for analytics. But don't worry, we do not pass on any sensible data to third parties.
 
-It's running on node.js using [this](https://github.com/yagop/node-telegram-bot-api) library. 
+### The infrastructure
 
 I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
 
@@ -44,3 +44,9 @@ Functions to come:
 Procrastination.
 
 And it does indeed help to figure out where to get lunch.
+
+### Libraries
+
+* [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api)
+* [botanio](https://www.npmjs.com/package/botanio)
+* [fs](https://nodejs.org/api/fs.html)
