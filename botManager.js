@@ -61,7 +61,8 @@ function processOnText(msg, match) {
         if (match[0] === '/feedback' || match[0] === '/feedback@zurimensen_bot') {
             resp = '*Feedback für Dummies:*\n/feedback <Deine Nachricht>';
 
-        } else if (match[0].indexOf('/feedback') != -1) {
+        } 
+        else if (match[0].indexOf('/feedback') != -1) {
             respId = chatId;
             fs.appendFile('logs/feedback.log', separator + '\n\n' + timestamp + '\n\n' + JSON.stringify(msg) + '\n\n', function (err) {
                 console.log(err);
@@ -69,17 +70,20 @@ function processOnText(msg, match) {
             resp = 'Vielen Dank für Dein Feedback!';
 
             messagesToSend.push({ chatId: feedback_chatId, message: 'New feedback:\n\n' + JSON.stringify(msg) });
-        } else if (match[0].indexOf('/respond') != -1) {
+        } 
+        else if (match[0].indexOf('/respond') != -1) {
 
             resp = match[0].split('respond');
             resp = resp[1];
 
             chatId = respId;
         }
-    } else {
+    } 
+    else {
         //Chopping '@...' from the command if needed
         var command = match[1].split('@');
         command = command[0];
+        var sentCommand = command;
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
         //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
         if (command in dinner_dict && timestamp.getHours() >= 14) {
@@ -87,7 +91,8 @@ function processOnText(msg, match) {
             var mensas = require('./mensas_abig.json');
             var t = 1;
             //Checking whether its a known cafeteria
-        } else if (command in dict) {
+        } 
+        else if (command in dict) {
             command = dict[command];
             var mensas = require('./mensas.json');
             var t = 0;
@@ -97,17 +102,20 @@ function processOnText(msg, match) {
         if (command in openingh) {
             resp = openingh[command];
             //Mensa
-        } else if (command in mensas) {
+        } 
+        else if (command in mensas) {
 
             //Weekend?
             if (timestamp.getDay() === 6 || timestamp.getDay() === 0) {
                 resp = "Heute haben leider alle Mensen geschlossen, sorry!";
                 //If weekday, wanted information is formatted as follows:
-            } else {
+            } 
+            else {
                 resp = "*" + command + "*\n";
                 if (!mensas[command].hours.mealtime[t]['hardcoded']) {
                     resp += "_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
-                } else{
+                } 
+                else{
                     resp += "\n";
                 }
                 
@@ -121,12 +129,17 @@ function processOnText(msg, match) {
                     }
                     if (mensas[command]['meals'][meal]['prices']['student'] == undefined) {
                         resp += "*" + mensas[command]["meals"][meal]["label"] + ":*\n" + description + "\n";
-                    } else {
+                    } 
+                    else {
                         resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description + "\n";
                     }
 
                 }
             }
+        }
+        else if(sentCommand in dict){
+            //mensa sollte vorhanden sein, ist aber nicht im json
+            resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen."
         }
     }
 

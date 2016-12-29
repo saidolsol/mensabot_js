@@ -33,7 +33,7 @@ function get_uni() {
         url = urls[mensa] + weekdays[d.getDay()] + '.html';
         (function fetchMensa(mensas, mensaName, url) {
 
-            console.log('starting ' + mensaName);
+            // console.log('getting ' + mensaName);
             request(
                 {
                     followRedirect: true,
@@ -43,7 +43,13 @@ function get_uni() {
                     //encoding: 'binary'
                     //json: true
                 }, function (error, response, body) {
-                    makeObject(body, false, mensaName);
+                    if(!error && response.statusCode == 200){ 
+                        makeObject(body, false, mensaName);
+                    }
+                    else {
+                        console.error("could not get uni " + mensaName  + " lunch menu from internet");
+                        console.log(error);
+                    }
                 });
         })(mensas, mensa, url);
     }
@@ -53,7 +59,7 @@ function get_uni() {
         url = urls_abig[mensa] + weekdays[d.getDay()] + '.html';
         (function fetchMensa(mensas, mensaName, url) {
 
-            console.log('starting ' + mensaName);
+            // console.log('getting ' + mensaName);
             request(
                 {
                     followRedirect: true,
@@ -63,7 +69,13 @@ function get_uni() {
                     //encoding: 'binary'
                     //json: true
                 }, function (error, response, body) {
-                    makeObject(body, true, mensaName);
+                    if(!error && response.statusCode == 200){ 
+                        makeObject(body, true, mensaName);
+                    }
+                    else {
+                        console.error("could not get uni " + mensaName  + " dinner menu from internet");
+                        console.log(error);
+                    }
                 });
         })(mensas_abig, mensa, url);
     }
@@ -71,7 +83,7 @@ function get_uni() {
 };
 
 function makeObject(body, isDinner, mensaName) {
-    console.log('getting ' + mensaName);
+    // console.log('parsing ' + mensaName);
     var document = parse5.parse(body.toString());
     var xhtml = xmlser.serializeToString(document);
     var doc = new dom().parseFromString(xhtml);
@@ -87,67 +99,69 @@ function makeObject(body, isDinner, mensaName) {
         }
         //console.log(nodes[i].data);
     }
-    thisMensa = {
-        "daytime": "lunch",
-        "mensa": mensaName,
-        "meals": [],
-        "hours": {
-            "opening": [
-                {
-                    "from": "9:00",
-                    "to": "18:00"
-                }
-            ],
-            "mealtime": [
-                {
-                    "hardcoded": true,
-                    "from": "lunch",
-                    "to": "later"
-                },
-                {
-                    "hardcoded": true,
-                    "from": "dinner",
-                    "to": "later"
-                }
-            ]
-        },
-        "location": {
-            "id": 1,
-            "label": "zentrum"
-        }
-    };
-    if (isDinner) thisMensa.daytime = "dinner";
-    currentMeal = {
-        "description": [],
-        "prices": {}
-    };
-    for (var i = 0; i < nodes.length; i++) {
-
-        if (nodes[i].parentNode.localName === "h3") {
-
-            if (i != 0) {
-                thisMensa.meals.push(currentMeal);
-                currentMeal = {
-                    "description": [],
-                    "prices": {}
-                };
+    if (nodes.length != 0){
+        thisMensa = {
+            "daytime": "lunch",
+            "mensa": mensaName,
+            "meals": [],
+            "hours": {
+                "opening": [
+                    {
+                        "from": "9:00",
+                        "to": "18:00"
+                    }
+                ],
+                "mealtime": [
+                    {
+                        "hardcoded": true,
+                        "from": "lunch",
+                        "to": "later"
+                    },
+                    {
+                        "hardcoded": true,
+                        "from": "dinner",
+                        "to": "later"
+                    }
+                ]
+            },
+            "location": {
+                "id": 1,
+                "label": "zentrum"
             }
-            currentMeal.label = nodes[i].data;
+        };
+        if (isDinner) thisMensa.daytime = "dinner";
+        currentMeal = {
+            "description": [],
+            "prices": {}
+        };
+        for (var i = 0; i < nodes.length; i++) {
+
+            if (nodes[i].parentNode.localName === "h3") {
+
+                if (i != 0) {
+                    thisMensa.meals.push(currentMeal);
+                    currentMeal = {
+                        "description": [],
+                        "prices": {}
+                    };
+                }
+                currentMeal.label = nodes[i].data;
+            }
+            else if (nodes[i].parentNode.localName === "span") {
+                currentMeal.label = currentMeal.label + " " + nodes[i].data;
+            }
+            else if (nodes[i].parentNode.localName === "p") {
+                currentMeal.description.push(nodes[i].data);
+            }
         }
-        else if (nodes[i].parentNode.localName === "span") {
-            currentMeal.label += nodes[i].data;
-        }
-        else if (nodes[i].parentNode.localName === "p") {
-            currentMeal.description.push(nodes[i].data);
+        thisMensa.meals.push(currentMeal);
+        if (isDinner) {
+            mensas_abig[mensaName] = thisMensa;
+        } else {
+            mensas[mensaName] = thisMensa;
         }
     }
-    thisMensa.meals.push(currentMeal);
-    if (isDinner) {
-        mensas_abig[mensaName] = thisMensa;
-    } else {
-        mensas[mensaName] = thisMensa;
-    }
-    console.log(mensaName + ' done');
+    // console.log(mensaName + ' done');
     requests--;
     if (requests == 0) {
         done();
@@ -156,10 +170,9 @@ function makeObject(body, isDinner, mensaName) {
 }
 
 function done() {
-    console.log("DONE");
     //console.log(mensas);
     require('fs').writeFileSync('./mensas.json', JSON.stringify(mensas));
     require('fs').writeFileSync('./mensas_abig.json', JSON.stringify(mensas_abig));
-    console.log('file written');
+    console.log('files written');
 }
 module.exports.get_uni = get_uni;

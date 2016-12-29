@@ -17,7 +17,6 @@ function call_eth(){
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/'+date+'/dinner';
     //call eth menu, which denn calls uni
     get_ethabig.get_ethabig(url_dinner, url_lunch);
-    console.log('got eth dinner');
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
