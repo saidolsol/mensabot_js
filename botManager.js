@@ -10,7 +10,7 @@ function processOnText(msg, match) {
     var messagesToSend = [];
     var openingh = require('./openingh');
     var chatId = msg.chat.id;
-    console.log(msg);
+    //console.log(msg);
 
     //Cafeterias serving dinner
     var dinner_dict = {
@@ -83,6 +83,7 @@ function processOnText(msg, match) {
         //Chopping '@...' from the command if needed
         var command = match[1].split('@');
         command = command[0];
+        console.log(command);
         var sentCommand = command;
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
         //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
@@ -112,12 +113,16 @@ function processOnText(msg, match) {
             } 
             else {
                 resp = "*" + command + "*\n";
-                if (!mensas[command].hours.mealtime[t]['hardcoded']) {
+                if ( mensas[command].hours.mealtime[t] && !mensas[command].hours.mealtime[t]['hardcoded']) {
                     resp += "_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
                 } 
-                else{
+                else {
                     resp += "\n";
                 }
+                if (mensas[command].hours.closed_due) {
+                    resp += "*wegen " + mensas[command].hours.closed_due + " geschlossen!*\n\n"; 
+                }
+                
                 
                 for (var meal in mensas[command]["meals"]) {
                     var description = "";

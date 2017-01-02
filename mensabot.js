@@ -34,7 +34,7 @@ bot.onText(/\/(.+)/, function (msg, match) {
     botan.track(msg, match[1].split('@')[0]);
     var messageToSend = botManager.processOnText(msg, match);
     
-    console.log(messageToSend);
+    //console.log(messageToSend);
     
     for(var i=0;i<messageToSend.length;i++) {
         
