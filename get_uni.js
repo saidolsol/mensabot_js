@@ -9,8 +9,8 @@ var mensas_abig = require('./mensas_abig.json')
 
 function get_uni() {
     var urls = {
-        'UZH untere Mensa A': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a/',
-        'UZH obere Mensa B': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-b/',
+        'UZH untere Mensa A': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-mercato/',
+        'UZH obere Mensa B': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-mensa/',
         'UZH Lichthof': 'http://www.mensa.uzh.ch/de/menueplaene/lichthof-rondell/',
         'UZH Irchel': 'http://www.mensa.uzh.ch/de/menueplaene/mensa-uzh-irchel/',
         'UZH Tierspital': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-tierspital/',
@@ -19,7 +19,7 @@ function get_uni() {
         'UZH Rämi 59 (vegan)': 'http://www.mensa.uzh.ch/de/menueplaene/raemi59/'
     };
     var urls_abig = {
-        'UZH untere Mensa A (abend)': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-a-abend/',
+        'UZH untere Mensa A (abend)': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-mercato-abend/',
         'UZH Irchel (abend)': 'http://www.mensa.uzh.ch/de/menueplaene/irchel-cafeteria-seerose-abend/'
     }
     var weekdays = ['', 'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag'];
@@ -171,6 +171,7 @@ function makeObject(body, isDinner, mensaName) {
 
 function done() {
     //console.log(mensas);
+    console.log('successfully got uni mensas');
     require('fs').writeFileSync('./mensas.json', JSON.stringify(mensas));
     require('fs').writeFileSync('./mensas_abig.json', JSON.stringify(mensas_abig));
     console.log('files written');
