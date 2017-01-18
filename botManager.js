@@ -166,9 +166,9 @@ function processOnText(msg, match) {
 
         }
 
-        else if (command.includes("setsvensh") && msg.from.username === "svenshbob"){
+        else if (command.includes("setsvensh") && msg.from.username === "gingeneer"){
             var svenshMenu = {};
-            svenshMenu['menu'] = command.replace('setsvensh','').trim();
+            svenshMenu['menu'] = msg.text.replace('/setsvensh','').trim();
             svenshMenu['updated'] = new Date().toJSON();
             fs.writeFileSync("./svensh.json", JSON.stringify(svenshMenu));
             resp = "Svensh Menu updated to: " + svenshMenu.menu;
