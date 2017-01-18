@@ -16,7 +16,7 @@ function get_uni() {
         'UZH Tierspital': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-tierspital/',
         'UZH Zentrum Für Zahnmedizin': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-zzm/',
         'UZH Platte': 'http://www.mensa.uzh.ch/de/menueplaene/cafeteria-uzh-plattenstrasse/',
-        'UZH Rämi 59 (vegan)': 'http://www.mensa.uzh.ch/de/menueplaene/raemi59/'
+        'UZH Rämi 59 (vegi)': 'http://www.mensa.uzh.ch/de/menueplaene/raemi59/'
     };
     var urls_abig = {
         'UZH untere Mensa A (abend)': 'http://www.mensa.uzh.ch/de/menueplaene/zentrum-mercato-abend/',

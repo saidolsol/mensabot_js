@@ -53,7 +53,7 @@ function processOnText(msg, match) {
         'zahnarzt': 'UZH Zentrum Für Zahnmedizin',
         'tierspital': 'UZH Tierspital',
         'platte': 'UZH Platte',
-        'raemi': 'UZH Rämi 59 (vegan)'
+        'raemi': 'UZH Rämi 59 (vegi)'
     };
 
     //Feedback
