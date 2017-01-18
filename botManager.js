@@ -166,7 +166,7 @@ function processOnText(msg, match) {
 
         }
 
-        else if (command.includes("setsvensh") && msg.from.username === "gingeneer"){
+        else if (command.includes("setsvensh") && msg.from.username === "svenshbob"){
             var svenshMenu = {};
             svenshMenu['menu'] = msg.text.replace('/setsvensh','').trim();
             svenshMenu['updated'] = new Date().toJSON();
@@ -177,7 +177,7 @@ function processOnText(msg, match) {
 
         else if(sentCommand in dict){
             //mensa sollte vorhanden sein, ist aber nicht im json
-            resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen."
+            resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen. 😢"
         }
         
         else {
