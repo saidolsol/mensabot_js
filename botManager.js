@@ -85,17 +85,18 @@ function processOnText(msg, match) {
         command = command[0];
         console.log(command);
         var sentCommand = command;
+        var mensas = {}
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
         //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
         if (command in dinner_dict && timestamp.getHours() >= 14) {
             command = dinner_dict[command];
-            var mensas = require('./mensas_abig.json');
+            mensas = require('./mensas_abig.json');
             var t = 1;
             //Checking whether its a known cafeteria
         } 
         else if (command in dict) {
             command = dict[command];
-            var mensas = require('./mensas.json');
+            mensas = require('./mensas.json');
             var t = 0;
             //...help/start, opening hours
         }
@@ -142,9 +143,45 @@ function processOnText(msg, match) {
                 }
             }
         }
+        
+        else if (command === "svensh"){
+            try{
+                var svenshMenu = JSON.parse(fs.readFileSync('./svensh.json', 'utf8'));
+                if (new Date(svenshMenu.updated).toDateString() == new Date().toDateString() && svenshMenu.menu != ''){
+                    //zum am david per zuefall (10%) e freud mache
+                    if (Math.random() < 0.1) {
+                        resp = "*svenshboob's Kitchen:*\n" + svenshMenu.menu;
+                    }
+                    else {
+                        resp = "*svenshbob's Kitchen:*\n" + svenshMenu.menu;
+                    }
+                }
+                else {
+                    resp = "No svensh menu today 😢";
+                }
+            }
+            catch (err) {
+                resp = "No svensh menu today 😢";
+            }
+
+        }
+
+        else if (command.includes("setsvensh") && msg.from.username === "svenshbob"){
+            var svenshMenu = {};
+            svenshMenu['menu'] = command.replace('setsvensh','').trim();
+            svenshMenu['updated'] = new Date().toJSON();
+            fs.writeFileSync("./svensh.json", JSON.stringify(svenshMenu));
+            resp = "Svensh Menu updated to: " + svenshMenu.menu;
+            
+        }
+
         else if(sentCommand in dict){
             //mensa sollte vorhanden sein, ist aber nicht im json
             resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen."
+        }
+        
+        else {
+            return;
         }
     }
 

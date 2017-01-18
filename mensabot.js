@@ -35,7 +35,7 @@ bot.onText(/\/(.+)/, function (msg, match) {
     var messageToSend = botManager.processOnText(msg, match);
     
     //console.log(messageToSend);
-    
+    if (messageToSend == undefined) return;
     for(var i=0;i<messageToSend.length;i++) {
         
         var message = messageToSend[i];
