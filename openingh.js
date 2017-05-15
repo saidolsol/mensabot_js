@@ -37,6 +37,7 @@ var openingh ={
             "cc" : "*Öffnungszeiten Curry Corner:*\nMo-Fr: 11:15 bis 14:00 Uhr",
             "coop": "*Öffnungszeiten coop Haldenbach:*\nMo-Sa: 07:30 bis 21:00 Uhr\nSonntags geschlossen",
             "unipoint": "*Öffnungszeiten Döner Unipoint:*\nMo-Fr: 08:30 bis 23:30 Uhr\nSa-So: 10:30 bis 22:00 Uhr",
+            "pivo": "🍻",
             "how" : "Ich laufe auf Node.js auf einem Server vom SOSETH. Die Menüs lade ich mir jeden tag als JSON bei der ETH runter. Alles weitere gibt\'s auf [GitHub](https://github.com/saidolsol/mensabot_js).",
             "help" : help_msg,
             "start" : help_msg
