@@ -8,3 +8,4 @@ logs/*
 nohup.out
 mensa_pid.txt
 svensh.json
+*_gifs.json

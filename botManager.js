@@ -10,6 +10,7 @@ function processOnText(msg, match) {
     var messagesToSend = [];
     var openingh = require('./openingh');
     var chatId = msg.chat.id;
+    var respType = "text";
     //console.log(msg);
 
     //Cafeterias serving dinner
@@ -61,7 +62,7 @@ function processOnText(msg, match) {
         if (match[0] === '/feedback' || match[0] === '/feedback@zurimensen_bot') {
             resp = '*Feedback für Dummies:*\n/feedback <Deine Nachricht>';
 
-        } 
+        }
         else if (match[0].indexOf('/feedback') != -1) {
             respId = chatId;
             fs.appendFile('logs/feedback.log', separator + '\n\n' + timestamp + '\n\n' + JSON.stringify(msg) + '\n\n', function (err) {
@@ -70,7 +71,7 @@ function processOnText(msg, match) {
             resp = 'Vielen Dank für Dein Feedback!';
 
             messagesToSend.push({ chatId: feedback_chatId, message: 'New feedback:\n\n' + JSON.stringify(msg) });
-        } 
+        }
         else if (match[0].indexOf('/respond') != -1) {
 
             resp = match[0].split('respond');
@@ -78,7 +79,7 @@ function processOnText(msg, match) {
 
             chatId = respId;
         }
-    } 
+    }
     else {
         //Chopping '@...' from the command if needed
         var command = match[1].split('@');
@@ -93,7 +94,7 @@ function processOnText(msg, match) {
             mensas = require('./mensas_abig.json');
             var t = 1;
             //Checking whether its a known cafeteria
-        } 
+        }
         else if (command in dict) {
             command = dict[command];
             mensas = require('./mensas.json');
@@ -104,27 +105,27 @@ function processOnText(msg, match) {
         if (command in openingh) {
             resp = openingh[command];
             //Mensa
-        } 
+        }
         else if (command in mensas) {
 
             //Weekend?
             if (timestamp.getDay() === 6 || timestamp.getDay() === 0) {
                 resp = "Heute haben leider alle Mensen geschlossen, sorry!";
                 //If weekday, wanted information is formatted as follows:
-            } 
+            }
             else {
                 resp = "*" + command + "*\n";
-                if ( mensas[command].hours.mealtime[t] && !mensas[command].hours.mealtime[t]['hardcoded']) {
+                if (mensas[command].hours.mealtime[t] && !mensas[command].hours.mealtime[t]['hardcoded']) {
                     resp += "_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
-                } 
+                }
                 else {
                     resp += "\n";
                 }
                 if (mensas[command].hours.closed_due) {
-                    resp += "*wegen " + mensas[command].hours.closed_due + " geschlossen!*\n\n"; 
+                    resp += "*wegen " + mensas[command].hours.closed_due + " geschlossen!*\n\n";
                 }
-                
-                
+
+
                 for (var meal in mensas[command]["meals"]) {
                     var description = "";
                     for (i in mensas[command]["meals"][meal]["description"]) {
@@ -135,7 +136,7 @@ function processOnText(msg, match) {
                     }
                     if (mensas[command]['meals'][meal]['prices']['student'] == undefined) {
                         resp += "*" + mensas[command]["meals"][meal]["label"] + ":*\n" + description + "\n";
-                    } 
+                    }
                     else {
                         resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description + "\n";
                     }
@@ -143,11 +144,11 @@ function processOnText(msg, match) {
                 }
             }
         }
-        
-        else if (command === "svensh"){
-            try{
+
+        else if (command === "svensh") {
+            try {
                 var svenshMenu = JSON.parse(fs.readFileSync('./svensh.json', 'utf8'));
-                if (new Date(svenshMenu.updated).toDateString() == new Date().toDateString() && svenshMenu.menu != ''){
+                if (new Date(svenshMenu.updated).toDateString() == new Date().toDateString() && svenshMenu.menu != '') {
                     //zum am david per zuefall (10%) e freud mache
                     if (Math.random() < 0.1) {
                         resp = "*svenshboob's Kitchen:*\n" + svenshMenu.menu;
@@ -166,20 +167,36 @@ function processOnText(msg, match) {
 
         }
 
-        else if (command.includes("setsvensh") && msg.from.username === "svenshbob"){
+        else if (command.includes("setsvensh") && msg.from.username === "svenshbob") {
             var svenshMenu = {};
-            svenshMenu['menu'] = msg.text.replace('/setsvensh','').trim();
+            svenshMenu['menu'] = msg.text.replace('/setsvensh', '').trim();
             svenshMenu['updated'] = new Date().toJSON();
             fs.writeFileSync("./svensh.json", JSON.stringify(svenshMenu));
             resp = "Svensh Menu updated to: " + svenshMenu.menu;
-            
+
         }
 
-        else if(sentCommand in dict){
+        //send a random beer gif if any were fetched, else send a beer emoji
+        else if (command === "pivo") {
+            respType = "document";
+            urlArray = require("./beer_gifs.json");
+            if (urlArray.length > 0) {
+                resp = urlArray[Math.floor(Math.random()*urlArray.length)];
+            }
+            else {
+                respType = "text";
+                resp = "🍻";
+            }
+            
+
+
+        }
+
+        else if (sentCommand in dict) {
             //mensa sollte vorhanden sein, ist aber nicht im json
             resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen. 😢"
         }
-        
+
         else {
             return;
         }
@@ -189,7 +206,7 @@ function processOnText(msg, match) {
     //sometimes they have ` in their menu, replace it with '
     resp = resp.replace(/`/g, '\'');
 
-    messagesToSend.push({ chatId: chatId, message: resp, options: { parse_mode: 'Markdown' } });
+    messagesToSend.push({ chatId: chatId, message: resp, options: { parse_mode: 'Markdown' }, type: respType });
 
     fs.appendFile('logs/handled_requests.log', separator + timestamp + '\n\n' + JSON.stringify(msg, null, 2) + '\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\nRESPONSE:\n\n' + resp + '\n', function (err) {
         console.log(err);
