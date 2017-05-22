@@ -4,7 +4,7 @@ var fs = require('fs');
 var request = require('request');
 
 function get_gifs(title) {
-    var url = "https://api.gfycat.com/v1test/gfycats/search?search_text=" + title + "&count=200";
+    var url = "https://api.gfycat.com/v1test/gfycats/search?search_text=" + title + "&count=100";
     request({ url: url, json: true }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var gif_urls = [];
