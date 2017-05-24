@@ -4,13 +4,15 @@ var fs = require('fs');
 var request = require('request');
 
 function get_gifs(title) {
-    var url = "https://api.gfycat.com/v1test/gfycats/search?search_text=" + title + "&count=100";
+    var url = "https://api.gfycat.com/v1test/gfycats/search?search_text=" + title + "&count=50";
     request({ url: url, json: true }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var gif_urls = [];
             var l = body.gfycats.length;
             for(i = 0; i < l; i++){
-                gif_urls.push(body.gfycats[i].gifUrl);
+                // if (body.gfycats[i].mp4Size <= 10000000)
+                gif_urls.push(body.gfycats[i].miniUrl);
+
             }
             fs.writeFileSync(title + "_gifs.json", JSON.stringify(gif_urls));
             console.log("got " + title + " gif urls");

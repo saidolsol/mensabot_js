@@ -5,7 +5,7 @@ var variables = require('./variables');
 var feedback_chatId = variables['feedback_chatId'];
 
 function processOnText(msg, match) {
-    var resp = null;
+    var resp = "";
     var timestamp = new Date();
     var messagesToSend = [];
     var openingh = require('./openingh');
@@ -178,7 +178,7 @@ function processOnText(msg, match) {
 
         //send a random beer gif if any were fetched, else send a beer emoji
         else if (command === "pivo") {
-            respType = "document";
+            respType = "video";
             urlArray = require("./beer_gifs.json");
             if (urlArray.length > 0) {
                 resp = urlArray[Math.floor(Math.random()*urlArray.length)];
@@ -186,6 +186,21 @@ function processOnText(msg, match) {
             else {
                 respType = "text";
                 resp = "🍻";
+            }
+            
+
+
+        }
+        // send random foodporn gif
+        else if (command === "nomnom") {
+            respType = "video";
+            urlArray = require("./foodporn_gifs.json");
+            if (urlArray.length > 0) {
+                resp = urlArray[Math.floor(Math.random()*urlArray.length)];
+            }
+            else {
+                respType = "text";
+                resp = "🍕 🍔 🥑";
             }
             
 
@@ -204,7 +219,7 @@ function processOnText(msg, match) {
 
     //dirty hack to remove ` in file because of errors with Markdown
     //sometimes they have ` in their menu, replace it with '
-    resp = resp.replace(/`/g, '\'');
+    if (respType === "text") resp = resp.replace(/`/g, '\'');
 
     messagesToSend.push({ chatId: chatId, message: resp, options: { parse_mode: 'Markdown' }, type: respType });
 

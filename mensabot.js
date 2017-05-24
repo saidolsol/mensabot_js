@@ -20,6 +20,8 @@ function call_eth() {
     var get_gifs = require('./get_gifs');
     //fetch gifs for /pivo responses
     get_gifs.get_gifs("beer");
+    //fetch gif urls for /nomnom:
+    get_gifs.get_gifs("foodporn");
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
@@ -64,8 +66,8 @@ bot.onText(/\/(.+)/, function (msg, match) {
                 i++;
             });
         }
-        else if (message.type === "document") {
-            bot.sendDocument(message.chatId, message.message).then(function (message) {
+        else if (message.type === "video") {
+            bot.sendVideo(message.chatId, message.message).then(function (message) {
                 console.log('Message sent');
                 i++;
             }, function (error) {
