@@ -191,10 +191,10 @@ function processOnText(msg, match) {
 
 
         }
-        // send random foodporn gif
+        // send random food gif for /nomnom
         else if (command === "nomnom") {
             respType = "video";
-            urlArray = require("./foodporn_gifs.json");
+            urlArray = require("./food_gifs.json");
             if (urlArray.length > 0) {
                 resp = urlArray[Math.floor(Math.random()*urlArray.length)];
             }

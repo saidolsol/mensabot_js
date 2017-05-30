@@ -21,7 +21,7 @@ function call_eth() {
     //fetch gifs for /pivo responses
     get_gifs.get_gifs("beer");
     //fetch gif urls for /nomnom:
-    get_gifs.get_gifs("foodporn");
+    get_gifs.get_gifs("food");
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
