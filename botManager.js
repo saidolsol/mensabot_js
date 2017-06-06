@@ -70,7 +70,7 @@ function processOnText(msg, match) {
             });
             resp = 'Vielen Dank für Dein Feedback!';
 
-            messagesToSend.push({ chatId: feedback_chatId, message: 'New feedback:\n\n' + JSON.stringify(msg) });
+            messagesToSend.push({ chatId: feedback_chatId, type: "text", message: 'New feedback:\n\n' + JSON.stringify(msg, null, 4) });
         }
         else if (match[0].indexOf('/respond') != -1) {
 
@@ -177,32 +177,32 @@ function processOnText(msg, match) {
         }
 
         //send a random beer gif if any were fetched, else send a beer emoji
-        else if (command === "pivo") {
+        else if (command === "pivo" || command === "beer") {
             respType = "video";
             urlArray = require("./beer_gifs.json");
             if (urlArray.length > 0) {
-                resp = urlArray[Math.floor(Math.random()*urlArray.length)];
+                resp = urlArray[Math.floor(Math.random() * urlArray.length)];
             }
             else {
                 respType = "text";
                 resp = "🍻";
             }
-            
+
 
 
         }
         // send random food gif for /nomnom
-        else if (command === "nomnom") {
+        else if (command === "nomnom" || command === "food") {
             respType = "video";
             urlArray = require("./food_gifs.json");
             if (urlArray.length > 0) {
-                resp = urlArray[Math.floor(Math.random()*urlArray.length)];
+                resp = urlArray[Math.floor(Math.random() * urlArray.length)];
             }
             else {
                 respType = "text";
                 resp = "🍕 🍔 🥑";
             }
-            
+
 
 
         }

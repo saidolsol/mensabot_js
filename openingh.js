@@ -19,14 +19,16 @@ var help_msg = '*Verfügbare Mensen*:\n\
     UZH Zahnmedizin: /zahnarzt\n\
     UZH Plattenstrasse: /platte\n\
     UZH Rämi 59 (vegan): /raemi\n\n\
-    Abendmenüs gibt\'s ab 14:00 Uhr.\n\n*Verfügbare Öffnungszeiten:*\n_Mit Vorsicht zu genießen!_\n\
+    Abendmenüs gibt\'s ab 14:00 Uhr.\n\n\
+*GIFs* (pronounced /ˈɡɪf/!): /food & /beer\n\n\
+*Verfügbare Öffnungszeiten:*\n_Mit Vorsicht zu genießen!_\n\
     Klara\'s Kitchen: /klaras \n\
     Unipoint Döner: /unipoint\n\
     coop Haldenbach: /coop\n\
     Beers\'n\'More: /beersnmore\n\
     Hot Pasta: /hotpasta\n\
     Jimmy\'s Pizza: /jimmy\n\
-    Curry Corner: /cc  \
+    Curry Corner: /cc \n\
     \n\n*Fragen oder Anregungen:*\n/feedback <Deine Nachricht>\n\n*Willst Du mithelfen?*\nSchau doch auf [GitHub](https://github.com/saidolsol/mensabot_js) vorbei :)';
 
 var openingh = {
