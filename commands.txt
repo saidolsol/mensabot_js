@@ -29,3 +29,5 @@ gessbar - G-ESSbar
 alumni - Alumni quattro Lounge
 unipoint - Öffnungszeiten Döner Unipoint
 coop - Öffnungszeiten coop Haldenbach
+pivo - Schniekes Bier-JIF
+nomnom - Schniekes nomnom-JIF
