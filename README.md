@@ -9,8 +9,7 @@ Currently, the bot can do the following:
 * Provide opening hours for different businesses around the ETH campuses City and Hönggerberg
 * Collect feedback and allow us to reply to it
 
-A complete list of commands is saved in the [commands.txt](https://github.com/saidolsol/mensabot_js/blob/master/commands.txt) file.
-
+A list of all commands for the general user is saved in the [commands.txt](https://github.com/saidolsol/mensabot_js/blob/master/commands.txt) file. This file is used to set the commands with the BotFather. Some commands you may find in the code are not intended for public usage and therefore not listed here.
 ### How it does it
 
 The bot is divided into three main parts. There is the botManager, that takes care of the message and gives the appropriate response. Then there are the get-functions, that provide the menus and finally there's the mensabot.js file, which puts all the pieces together.
