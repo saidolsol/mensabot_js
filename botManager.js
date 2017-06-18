@@ -58,6 +58,9 @@ function processOnText(msg, match) {
     };
 
     //Feedback
+//    if (msg.from.username === "kay_wacker"){
+//	resp = null;
+//    }
     if (match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
         if (match[0] === '/feedback' || match[0] === '/feedback@zurimensen_bot') {
             resp = '*Feedback für Dummies:*\n/feedback <Deine Nachricht>';
@@ -176,37 +179,37 @@ function processOnText(msg, match) {
 
         }
 
-        //send a random beer gif if any were fetched, else send a beer emoji
-        else if (command === "pivo" || command === "beer") {
-            respType = "video";
-            urlArray = require("./beer_gifs.json");
-            if (urlArray.length > 0) {
-                resp = urlArray[Math.floor(Math.random() * urlArray.length)];
-            }
-            else {
-                respType = "text";
-                resp = "🍻";
-            }
-
-
-
-        }
-        // send random food gif for /nomnom
-        else if (command === "nomnom" || command === "food") {
-            respType = "video";
-            urlArray = require("./food_gifs.json");
-            if (urlArray.length > 0) {
-                resp = urlArray[Math.floor(Math.random() * urlArray.length)];
-            }
-            else {
-                respType = "text";
-                resp = "🍕 🍔 🥑";
-            }
-
-
-
-        }
-
+//        //send a random beer gif if any were fetched, else send a beer emoji
+//        else if (command === "pivo" || command === "beer") {
+//            respType = "video";
+//            urlArray = require("./beer_gifs.json");
+//            if (urlArray.length > 0) {
+//                resp = urlArray[Math.floor(Math.random() * urlArray.length)];
+//            }
+//            else {
+//                respType = "text";
+//                resp = "🍻";
+//            }
+//
+//
+//
+//        }
+//        // send random food gif for /nomnom
+//        else if (command === "nomnom" || command === "food") {
+//            respType = "video";
+//            urlArray = require("./food_gifs.json");
+//            if (urlArray.length > 0) {
+//                resp = urlArray[Math.floor(Math.random() * urlArray.length)];
+//            }
+//            else {
+//                respType = "text";
+//                resp = "🍕 🍔 🥑";
+//            }
+//
+//
+//
+//        }
+//
         else if (sentCommand in dict) {
             //mensa sollte vorhanden sein, ist aber nicht im json
             resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen. 😢"
