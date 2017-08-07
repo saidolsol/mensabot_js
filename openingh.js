@@ -20,7 +20,6 @@ var help_msg = '*Verfügbare Mensen*:\n\
     UZH Plattenstrasse: /platte\n\
     UZH Rämi 59 (vegan): /raemi\n\n\
     Abendmenüs gibt\'s ab 14:00 Uhr.\n\n\
-*GIFs* (pronounced /ˈɡɪf/!): /food & /beer\n\n\
 *Verfügbare Öffnungszeiten:*\n_Mit Vorsicht zu genießen!_\n\
     Klara\'s Kitchen: /klaras \n\
     Unipoint Döner: /unipoint\n\
