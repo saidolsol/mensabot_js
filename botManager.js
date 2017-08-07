@@ -114,7 +114,7 @@ function processOnText(msg, match) {
                     for (var i = 0; i < 3; i++){
                         var date = new Date(menu[i].created_time);
                         resp += "\n_" + date.toDateString() +", " + date.getHours() + ':' + date.getMinutes() + "_\n";
-                        resp += menu[i].message.replace(/\n/g, '') + "\n";
+                        resp += menu[i].message.replace(/\n/g, ' ') + "\n";
                     }
                 }
             }
