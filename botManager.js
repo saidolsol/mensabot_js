@@ -104,16 +104,28 @@ function processOnText(msg, match) {
 
         if (command in openingh) {
             resp = openingh[command];
-            //Mensa
+            if (command === "klaras"){
+                var menu = require('./klaras.json');
+                if (menu && menu.length > 0){
+                    resp += "\n*facebook feed:*";
+                    for (var i = 0; i < 3; i++){
+                        var date = new Date(menu[i].created_time);
+                        resp += "\n_" + date.toDateString() +", " + date.getHours() + ':' + date.getMinutes() + "_\n";
+                        resp += menu[i].message.replace(/\n/g, '') + "\n";
+                    }
+                }
+            }
+            
         }
+        //Mensa
         else if (command in mensas) {
 
             //Weekend?
-            if (timestamp.getDay() === 6 || timestamp.getDay() === 0) {
-                resp = "Heute haben leider alle Mensen geschlossen, sorry!";
-                //If weekday, wanted information is formatted as follows:
-            }
-            else {
+            // if (timestamp.getDay() === 6 || timestamp.getDay() === 0) {
+            //     resp = "Heute haben leider alle Mensen geschlossen, sorry!";
+            //     //If weekday, wanted information is formatted as follows:
+            // }
+            // else {
                 resp = "*" + command + "*\n";
                 if (mensas[command].hours.mealtime[t] && !mensas[command].hours.mealtime[t]['hardcoded']) {
                     resp += "_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
@@ -142,7 +154,7 @@ function processOnText(msg, match) {
                     }
 
                 }
-            }
+            // }
         }
 
         else if (command === "svensh") {
@@ -219,7 +231,7 @@ function processOnText(msg, match) {
 
     //dirty hack to remove ` in file because of errors with Markdown
     //sometimes they have ` in their menu, replace it with '
-    if (respType === "text") resp = resp.replace(/`/g, '\'');
+        if (respType === "text") resp = resp.replace(/`/g, '\'');
 
     messagesToSend.push({ chatId: chatId, message: resp, options: { parse_mode: 'Markdown' }, type: respType });
 

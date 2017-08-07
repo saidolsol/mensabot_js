@@ -17,11 +17,13 @@ function call_eth() {
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/dinner';
     //call eth menu, which denn calls uni
     get_ethabig.get_ethabig(url_dinner, url_lunch);
-    var get_gifs = require('./get_gifs');
+    var get_klaras = require('./get_klaras');
+    get_klaras.get_klaras();
+    //var get_gifs = require('./get_gifs');
     //fetch gifs for /pivo responses
-    get_gifs.get_gifs("beer");
+    //get_gifs.get_gifs("beer");
     //fetch gif urls for /nomnom:
-    get_gifs.get_gifs("food");
+    //get_gifs.get_gifs("food");
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
