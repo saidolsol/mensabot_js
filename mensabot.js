@@ -24,7 +24,7 @@ function log_csv(msg, match){
     }
     var moment = require('moment');
     var date_string = moment.unix(msg.date).format("YYYY-MM-DD HH:mm:ss");
-    var stats = msg.from.id + ',"' + match[1].split('@')[0] + '","' + date_string + '",';
+    var stats = msg.from.id + ',"' + match[1].split('@')[0] + '",' + date_string + ',';
     if (msg.chat.type === "group") stats += "true";
     else stats += "false";
 
