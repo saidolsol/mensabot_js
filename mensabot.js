@@ -3,6 +3,7 @@ var fs = require('fs');
 var botManager = require('./botManager.js');
 var variables = require('./variables');
 
+
 //Holt die Menüs der ETH- und Uni Mensen
 function call_menus() {
     var get_ethabig = require('./get_ethabig');
@@ -17,6 +18,19 @@ function call_menus() {
     get_klaras.get_klaras();
 }
 
+function log_csv(msg, match){
+    if (!fs.existsSync("./stats.csv")){
+        fs.writeFileSync("./stats.csv", "user,request,time,is_groupchat" + "\n");
+    }
+    var moment = require('moment');
+    var date_string = moment.unix(msg.date).format("YYYY-MM-DD HH:mm:ss");
+    var stats = msg.from.id + ',"' + match[1].split('@')[0] + '","' + date_string + '",';
+    if (msg.chat.type === "group") stats += "true";
+    else stats += "false";
+
+    fs.appendFileSync("./stats.csv", stats + "\n");
+}
+
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
 call_menus();
 
@@ -29,6 +43,8 @@ var bot = new TelegramBot(token, { polling: true });
 bot.onText(/\/(.+)/, function (msg, match) {
 
     console.log('onText: ');
+
+    log_csv(msg, match);
     var messageToSend = botManager.processOnText(msg, match);
 
     //console.log(messageToSend);
