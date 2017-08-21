@@ -9,9 +9,9 @@ function call_eth() {
     var get_ethabig = require('./get_ethabig');
     //URL für heute generieren
     var date = new Date();
-    if ((date.getDay() === 6) || (date.getDay() === 0)) {
-        return;
-    }
+    //if ((date.getDay() === 6) || (date.getDay() === 0)) {
+    //    return;
+    //}
     date = date.toISOString().split('T')[0];
     var url_lunch = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/lunch';
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/dinner';

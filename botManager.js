@@ -224,7 +224,7 @@ function processOnText(msg, match) {
 //
         else if (sentCommand in dict) {
             //mensa sollte vorhanden sein, ist aber nicht im json
-            resp = "Diese Mensa hat kein Menu zur verfügunge gestellt, vermutlich ist sie heute geschlossen. 😢"
+            resp = "Diese Mensa hat kein Menu zur verfügung gestellt, vermutlich ist sie heute geschlossen. 😢"
         }
 
         else {
