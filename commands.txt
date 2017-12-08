@@ -1,7 +1,7 @@
 help - Anleitung
 poly - Menü der Polymensa
 trailer - Menü des Foodtrailers
-asia - Menü der CLAusiusbar
+clausius - Menü der CLAusiusbar
 fusion - Menü der Fusionmensa
 foodlab - Menü des FoodLabs
 woka - Menü vom Woka
@@ -18,10 +18,9 @@ tierspital - UZH Tierspital
 zahnarzt - UZH Zentrum für Zahnmedizin
 platte - UZH Plattenstrasse
 raemi - UZH Rämi 59 (vegan)
-klaras - Öffnungszeiten Klara's Kitchen
+klaras - Men�s und Öfnungszeiten Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More
-cc - Öffnungszeiten Curry Corner
 feedback - Was hältste von mir?
 how - So funktioniere ich
 polysnack - polysnack
@@ -29,5 +28,3 @@ gessbar - G-ESSbar
 alumni - Alumni quattro Lounge
 unipoint - Öffnungszeiten Döner Unipoint
 coop - Öffnungszeiten coop Haldenbach
-beer - Schniekes Bier-JIF
-food - Schniekes nomnom-JIF

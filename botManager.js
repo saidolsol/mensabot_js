@@ -36,6 +36,7 @@ function processOnText(msg, match) {
         "bellavista": "BELLAVISTA",
         "foodlab": "foodLAB",
         "clausiusbar": "Clausiusbar",
+	"clausius": "Clausiusbar",
         "asia": "Clausiusbar",
         "fusion": "FUSION meal",
         "woka": "Woka",
