@@ -93,7 +93,8 @@ function makeObject(body, isDinner, mensaName) {
         // remove all the fucking white spaces of this shitty html
         //nodes[i].data = nodes[i].data.replace(/(\r\n|\n|\r)/gm, "");
         nodes[i].data = nodes[i].data.trim();
-        if (nodes[i].data == "") {
+        // the "​" (\u200B) is a zero width space which is for some fuckin reason in the html
+        if (nodes[i].data == "" || nodes[i].data == '\u200B') {
             nodes.splice(i, 1);
             continue;
         }
