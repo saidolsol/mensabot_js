@@ -1,8 +1,8 @@
 var help_msg = '*Verfügbare Mensen*:\n\
     Mensa Polyterasse: /poly \n\
     Food Trailer: /trailer \n\
-    CLAusiusbar: /asia\n\
-    Fusionmensa: /fusion \n\
+    CLAusiusbar: /clausius\n\
+    Fusionmensa: /fusion\n\
     FoodLAB: /foodlab\n\
     Woka: /woka\n\
     Polysnack: /polysnack\n\
