@@ -24,7 +24,7 @@ I set up a cronjob to restart the program every night to update the JSONs.
 
 The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always up to date.
 
-If a user asks for a menu during the weekends, the bot will simply respond that there are no cafeterias opened. This is generally true, although this could be handled more elegantly.
+If a user is asking for a menu, which the bot cannot provide (for example on weekends or holidays or because someone from the cafeteria messed up), she or he will receive an error.
 
 ### The infrastructure
 
@@ -32,9 +32,11 @@ I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch
 
 ### The future
 
-Functions to come:
-* Filling level of the vending machine in the student's lounge
-* A nicer way to deal with weekends and other instances, when cafeterias don't provide a menu
+Functions we would like to add:
+* Filling level of the vending machine in the student's lounge (no idea how to realize this)
+* Enable users to receive their fovourite cafeteria's menu automatically every day at a certain time
+* A way of rating menus afterwards, so other users can decide where to eat based on those ratings
+* ~~A nicer way to deal with weekends and other instances, when cafeterias don't provide a menu~~
 
 ### Why
 
