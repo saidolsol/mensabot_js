@@ -49,3 +49,7 @@ And it does indeed help to figure out where to get lunch.
 * [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api)
 * [botanio](https://www.npmjs.com/package/botanio)
 * [fs](https://nodejs.org/api/fs.html)
+
+### Press
+
+Due to its outstanding contribution to the quality of campus life, the bot was featured in the renowned students magaziine "[Blitz](https://www.blitz.ethz.ch/)" (issue nr. 2 "Dreiecke", autumn 2017).
