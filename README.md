@@ -52,4 +52,4 @@ And it does indeed help to figure out where to get lunch.
 
 ### Press
 
-Due to its outstanding contribution to the quality of campus life, the bot was featured in the renowned students magaziine "[Blitz](https://www.blitz.ethz.ch/)" (issue nr. 2 "Dreiecke", autumn 2017).
+Due to its outstanding contribution to the quality of campus life, the bot was featured in the renowned students magazine "[Blitz](https://www.blitz.ethz.ch/)" (issue nr. 2 "Dreiecke", autumn 2017).
