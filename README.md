@@ -1,4 +1,4 @@
-# @zurimensen_bot - Mensabot Zürich by saidolsol and gingeneer
+# [@zurimensen_bot](http://t.me/zurimensen_bot) - Mensabot Zürich by saidolsol and gingeneer
 
 This is a german speaking chat bot for the messenger app [Telegram](https://telegram.org). It was created to provide users with menus of all cafeterias on the ETH and UZH campuses in Zürich. Although this does work well for ETH cafeterias, it turned out to be a little more difficult for the UZH cafeterias. We got it working with UZH mensas, but it just parses the HTML of the UZH website, so it will break if they change anything on the site.
 
@@ -10,6 +10,7 @@ Currently, the bot can do the following:
 * Collect feedback and allow us to reply to it
 
 A list of all commands for the general user is saved in the [commands.txt](https://github.com/saidolsol/mensabot_js/blob/master/commands.txt) file. This file is used to set the commands with the BotFather. Some commands you may find in the code are not intended for public usage and therefore not listed here.
+
 ### How it does it
 
 The bot is divided into three main parts. There is the botManager, that takes care of the message and gives the appropriate response. Then there are the get-functions, that provide the menus and finally there's the mensabot.js file, which puts all the pieces together.
