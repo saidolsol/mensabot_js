@@ -20,15 +20,15 @@ For the cafeterias of the UZH, we parse the HTML of the unis website, which is n
 
 If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menus of the other cafeterias remain unchanged. 
 
-I set up a cronjob to restart the program every night to update the JSONs.
+We set up a cronjob to restart the program every night to update the JSONs.
 
 The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always up to date.
 
-If a user is asking for a menu, which the bot cannot provide (for example on weekends or holidays or because someone from the cafeteria messed up), she or he will receive an error.
+If a user is asking for a menu, which the bot cannot provide (for example on weekends or holidays or because someone from the cafeteria messed up), she or he will receive a message explaining.
 
 ### The infrastructure
 
-I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
+We're hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
 
 ### The future
 
@@ -47,7 +47,6 @@ And it does indeed help to figure out where to get lunch.
 ### Libraries
 
 * [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api)
-* [botanio](https://www.npmjs.com/package/botanio)
 * [fs](https://nodejs.org/api/fs.html)
 
 ### Press
