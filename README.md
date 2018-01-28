@@ -21,7 +21,7 @@ For the cafeterias of the UZH, we parse the HTML of the unis website, which is n
 
 If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menus of the other cafeterias remain unchanged. 
 
-We set up a cronjob to restart the program every night to update the JSONs.
+We set up a cronjob to restart the program every night to update the JSONs. Although there are functions, that would not require a restart, a cronjob seems to be the simplest and most robust solution.
 
 The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always up to date.
 
