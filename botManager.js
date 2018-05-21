@@ -27,6 +27,7 @@ function processOnText(msg, match) {
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
     var dict = {
+	"beck": "buchmann",
         "cliff": "Clausiusbar",
         "haoyi": "Woka",
         "poly": "Mensa Polyterrasse",
