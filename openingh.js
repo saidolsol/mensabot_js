@@ -3,8 +3,6 @@ var help_msg = '*Verfügbare Mensen*:\n\
     Food Trailer: /trailer \n\
     CLAusiusbar: /clausius\n\
     Fusionmensa: /fusion\n\
-    FoodLAB: /foodlab\n\
-    Woka: /woka\n\
     Polysnack: /polysnack\n\
     G-ESSbar: /gessbar\n\
     Tannenbar: /tannenbar\n\
@@ -27,10 +25,10 @@ var help_msg = '*Verfügbare Mensen*:\n\
     Beers\'n\'More: /beersnmore\n\
     Hot Pasta: /hotpasta\n\
     Jimmy\'s Pizza: /jimmy\n\
-    Curry Corner: /cc \n\
     \n\n*Fragen oder Anregungen:*\n/feedback <Deine Nachricht>\n\n*Willst Du mithelfen?*\nSchau doch auf [GitHub](https://github.com/saidolsol/mensabot_js) vorbei :)';    
 
 var openingh = {
+    "buchmann": '*Öffnungszeiten Buchmann Cafe und Beck:* \nMo-Fr: 07:00 bis 21:00 Uhr\nSa: 07:00 bis 17:00 Uhr\nSo: 08:00 bis 17:00 Uhr\n_Nur bargeldlose Zahlung!_',
     "klaras": '*Öffnungszeiten Klara\'s Kitchen:* \nMo-Fr: 07:30 bis 16:30 Uhr',
     "hotpasta": '*Öffnungszeiten Hot Pasta:* \nMo-Fr: 08:00 bis 24:00 Uhr\nSa: 11:00 bis 17:00 Uhr\nSonntags geschlossen',
     "beersnmore": '*Öffnungszeiten Beers\'n\'More:* \nMo-Do: 16:00 bis 21:30 Uhr\nFr: 16:00 bis 22:00 Uhr\nSa: 12:00 bis 22:00 Uhr\nSonntags geschlossen',
