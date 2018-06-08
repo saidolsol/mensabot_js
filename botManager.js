@@ -27,6 +27,7 @@ function processOnText(msg, match) {
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
     var dict = {
+	"beck": "buchmann",
         "cliff": "Clausiusbar",
         "haoyi": "Woka",
         "poly": "Mensa Polyterrasse",
@@ -36,6 +37,7 @@ function processOnText(msg, match) {
         "bellavista": "BELLAVISTA",
         "foodlab": "foodLAB",
         "clausiusbar": "Clausiusbar",
+	"clausius": "Clausiusbar",
         "asia": "Clausiusbar",
         "fusion": "FUSION meal",
         "woka": "Woka",
@@ -193,7 +195,7 @@ function processOnText(msg, match) {
 
         else if (sentCommand in dict) {
             //mensa sollte vorhanden sein, ist aber nicht im json
-            resp = "Diese Mensa hat kein Menu zur verfügung gestellt, vermutlich ist sie heute geschlossen. 😢"
+            resp = "Diese Mensa hat kein Menu zur Verfügung gestellt, vermutlich ist sie heute geschlossen. 😢"
         }
 
         else {

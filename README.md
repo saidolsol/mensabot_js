@@ -1,4 +1,4 @@
-# @zurimensen_bot - Mensabot Zürich by saidolsol and gingeneer
+# [@zurimensen_bot](http://t.me/zurimensen_bot) - Mensabot Zürich by saidolsol and gingeneer
 
 This is a german speaking chat bot for the messenger app [Telegram](https://telegram.org). It was created to provide users with menus of all cafeterias on the ETH and UZH campuses in Zürich. Although this does work well for ETH cafeterias, it turned out to be a little more difficult for the UZH cafeterias. We got it working with UZH mensas, but it just parses the HTML of the UZH website, so it will break if they change anything on the site.
 
@@ -10,6 +10,7 @@ Currently, the bot can do the following:
 * Collect feedback and allow us to reply to it
 
 A list of all commands for the general user is saved in the [commands.txt](https://github.com/saidolsol/mensabot_js/blob/master/commands.txt) file. This file is used to set the commands with the BotFather. Some commands you may find in the code are not intended for public usage and therefore not listed here.
+
 ### How it does it
 
 The bot is divided into three main parts. There is the botManager, that takes care of the message and gives the appropriate response. Then there are the get-functions, that provide the menus and finally there's the mensabot.js file, which puts all the pieces together.
@@ -20,21 +21,23 @@ For the cafeterias of the UZH, we parse the HTML of the unis website, which is n
 
 If a cafeteria also offers dinner, the displayed menu changes at 14:00. The menus of the other cafeterias remain unchanged. 
 
-I set up a cronjob to restart the program every night to update the JSONs.
+We set up a cronjob to restart the program every night to update the JSONs. Although there are functions, that would not require a restart, a cronjob seems to be the simplest and most robust solution.
 
 The opening hours are saved as a string in an object and have to be edited manually. Therefore, they are not always up to date.
 
-If a user asks for a menu during the weekends, the bot will simply respond that there are no cafeterias opened. This is generally true, although this could be handled more elegantly.
+If a user is asking for a menu, which the bot cannot provide (for example on weekends or holidays or because someone from the cafeteria messed up), she or he will receive a message explaining.
 
 ### The infrastructure
 
-I'm hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
+We're hosting the bot on a VM (Ubuntu) provided by the [SOSETH](http://sos.ethz.ch/ressorts/vsos/), a student's organization at the ETH.
 
 ### The future
 
-Functions to come:
-* Filling level of the vending machine in the student's lounge
-* A nicer way to deal with weekends and other instances, when cafeterias don't provide a menu
+Functions we would like to add:
+* Filling level of the vending machine in the student's lounge (no idea how to realize this)
+* Enable users to receive their fovourite cafeteria's menu automatically every day at a certain time
+* A way of rating menus afterwards, so other users can decide where to eat based on those ratings
+* ~~A nicer way to deal with weekends and other instances, when cafeterias don't provide a menu~~
 
 ### Why
 
@@ -45,5 +48,8 @@ And it does indeed help to figure out where to get lunch.
 ### Libraries
 
 * [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api)
-* [botanio](https://www.npmjs.com/package/botanio)
 * [fs](https://nodejs.org/api/fs.html)
+
+### Press
+
+Due to its outstanding contribution to the quality of campus life, the bot was featured in the renowned students magazine "[Blitz](https://www.blitz.ethz.ch/)" (issue nr. 2 "Dreiecke", autumn 2017).
