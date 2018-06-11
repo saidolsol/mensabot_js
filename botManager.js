@@ -60,10 +60,10 @@ function processOnText(msg, match) {
     };
 
     //Feedback
-//    if (msg.from.username === "kay_wacker"){
-//	resp = null;
-//    }
+
+
     if (match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
+        var authorized = ["gingeneer", "saidolsol"];
         if (match[0] === '/feedback' || match[0] === '/feedback@zurimensen_bot') {
             resp = '*Feedback für Dummies:*\n/feedback <Deine Nachricht>';
 
@@ -77,7 +77,13 @@ function processOnText(msg, match) {
 
             messagesToSend.push({ chatId: feedback_chatId, type: "text", message: 'New feedback:\n\n' + JSON.stringify(msg, null, 4) });
         }
-        else if (match[0].indexOf('/respond') != -1) {
+        //respond to feedback:
+        else if (match[0].indexOf('/respondid') != -1 && authorized.indexOf(msg.from.username) != -1){
+            str = match[0].split('respondid')[1].split(':');
+            resp = str[1];
+            chatId = parseInt(str[0]);
+        }
+        else if (match[0].indexOf('/respond') != -1 && authorized.indexOf(msg.from.username) != -1) {
 
             resp = match[0].split('respond');
             resp = resp[1];
