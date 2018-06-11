@@ -22,7 +22,8 @@ function processOnText(msg, match) {
         "fusion": "FUSION coffee",
         "irchel": "UZH Irchel (abend)",
         "uniunten": "UZH untere Mensa A (abend)",
-        "unia": "UZH untere Mensa A (abend)"
+        "unia": "UZH untere Mensa A (abend)",
+        "uni": "UZH untere Mensa A (abend)"
     }
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
@@ -57,7 +58,8 @@ function processOnText(msg, match) {
         'tierspital': 'UZH Tierspital',
         'platte': 'UZH Platte',
         'raemi': 'UZH Rämi 59 (vegi)',
-        'zhdk': 'ZHDK Toni-Areal'
+        'zhdk': 'ZHDK Toni-Areal',
+        'uni': "UZH obere Mensa B"
     };
 
     //Feedback
@@ -152,9 +154,9 @@ function processOnText(msg, match) {
                     }
                 }
                 if (mensas[command]['meals'][meal]['prices']['student'] == undefined) {
-                    resp += "*" + mensas[command]["meals"][meal]["label"] + ":*\n" + description + "\n";
+                    resp += "*" + mensas[command]["meals"][meal]["label"] + ":*\n" + description.replace("*", "(star)") + "\n";
                 } else {
-                    resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description + "\n";
+                    resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description.replace("*", "(star)") + "\n";
                 }
 
             }

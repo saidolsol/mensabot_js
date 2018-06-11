@@ -98,13 +98,13 @@ function makeObject(body, isDinner, mensaName) {
         };
         currentMeal.label = result.h3[i]._.trim();
         if (result.h3[i].span[0]._)
-          currentMeal.label = currentMeal.label + result.h3[i].span[0]._.trim();
+          currentMeal.label = currentMeal.label + " " + result.h3[i].span[0]._.trim();
         currentMeal.description.push(result.p[i]._.trim().replace(/  +/g, ' ').replace('\n \n', '\n'));
         thisMensa.meals.push(currentMeal);
       }
     }
   });
-  console.log(thisMensa);
+  //console.log(thisMensa);
 
   if (isDinner) {
     mensas_abig[mensaName] = thisMensa;
