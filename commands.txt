@@ -12,13 +12,15 @@ green -  Menü food market green day
 dozentenfoyer - Menü des Dozentenfoyers
 uniunten - UZH Untere Mensa a
 unioben - UZH Obere Mensa b
+uni - morgens die obere Mensa, nachmittags die untere
 lichthof - UZH Lichthof Rondell
 irchel - UZH Irchel
 tierspital - UZH Tierspital
 zahnarzt - UZH Zentrum für Zahnmedizin
 platte - UZH Plattenstrasse
 raemi - UZH Rämi 59 (vegan)
-klaras - Men�s und Öfnungszeiten Klara's Kitchen
+zhdk - ZHDK Toni-Areal
+klaras - Men�s und Öfnungszeiten Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More
 feedback - Was hältste von mir?
