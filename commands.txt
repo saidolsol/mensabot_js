@@ -3,16 +3,15 @@ poly - Menü der Polymensa
 trailer - Menü des Foodtrailers
 clausius - Menü der CLAusiusbar
 fusion - Menü der Fusionmensa
-foodlab - Menü des FoodLabs
-woka - Menü vom Woka
+riceup - Menü von Rice Up!
 tannenbar - Menü der Tannenbar
 grill - Menü vom food market grill bbQ
 pizzapasta - Menü vom food market pizza pasta
 green -  Menü food market green day
 dozentenfoyer - Menü des Dozentenfoyers
+uni - morgens die obere Mensa, nachmittags die untere
 uniunten - UZH Untere Mensa a
 unioben - UZH Obere Mensa b
-uni - morgens die obere Mensa, nachmittags die untere
 lichthof - UZH Lichthof Rondell
 irchel - UZH Irchel
 tierspital - UZH Tierspital
