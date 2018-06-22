@@ -18,8 +18,9 @@ tierspital - UZH Tierspital
 zahnarzt - UZH Zentrum für Zahnmedizin
 platte - UZH Plattenstrasse
 raemi - UZH Rämi 59 (vegan)
+uni - Mittags obere Uni, abends untere Uni
 zhdk - ZHDK Toni-Areal
-klaras - Men�s und Öfnungszeiten Klara's Kitchen
+klaras - Menü von Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More
 feedback - Was hältste von mir?
@@ -29,3 +30,4 @@ gessbar - G-ESSbar
 alumni - Alumni quattro Lounge
 unipoint - Öffnungszeiten Döner Unipoint
 coop - Öffnungszeiten coop Haldenbach
+buchmann - Öffnungszeiten Cafe und Beck Buchmann
