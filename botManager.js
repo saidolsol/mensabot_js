@@ -22,7 +22,8 @@ function processOnText(msg, match) {
         "fusion": "FUSION coffee",
         "irchel": "UZH Irchel (abend)",
         "uniunten": "UZH untere Mensa A (abend)",
-        "unia": "UZH untere Mensa A (abend)"
+        "unia": "UZH untere Mensa A (abend)",
+        "uni": "UZH untere Mensa A (abend)"
     }
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
@@ -49,13 +50,15 @@ function processOnText(msg, match) {
         'unia': 'UZH untere Mensa A',
         'unioben': 'UZH obere Mensa B',
         'unib': 'UZH obere Mensa B',
+        'uni': 'UZH obere Mensa B',
         'lichthof': 'UZH Lichthof',
         'irchel': 'UZH Irchel',
         'zahnarzt': 'UZH Zentrum Für Zahnmedizin',
         'tierspital': 'UZH Tierspital',
         'platte': 'UZH Platte',
         'raemi': 'UZH Rämi 59 (vegan)',
-        'riceup': 'Rice Up!'
+        'riceup': 'Rice Up!',
+        'zhdk': "ZHDK Toni-Areal"
     };
 
     //Feedback
