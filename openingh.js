@@ -1,14 +1,17 @@
-var help_msg = '*Verfügbare Mensen*\n
+var help_msg = '*Verfügbare Mensen Zentrum:*\n\
     Mensa Polyterasse: /poly \n\
     Food Trailer: /trailer \n\
     CLAusiusbar: /clausius\n\
-    Fusionmensa: /fusion\n\
     Polysnack: /polysnack\n\
     G-ESSbar: /gessbar\n\
     Tannenbar: /tannenbar\n\
-    Food Market: /grill, /pizzapasta, /green\n\
     Dozentenfoyer: /dozentenfoyer\n\
     Alumni quattro Lounge: /alumni\n\
+*Hönggerberg:*\n\
+    Fusionmensa: /fusion\n\
+    Rice Up!: /riceup\n\
+    Food Market: /grill, /pizzapasta, /green\n\
+*UZH Mensen:*\n\
     UZH untere Mensa a: /uniunten\n\
     UZH obere Mensa b: /unioben\n\
     UZH Lichthof: /lichthof\n\
@@ -21,11 +24,12 @@ var help_msg = '*Verfügbare Mensen*\n
 *Verfügbare Öffnungszeiten:*\n_Mit Vorsicht zu genießen!_\n\
     Klara\'s Kitchen: /klaras \n\
     Unipoint Döner: /unipoint\n\
+    Lemon Grass: /lemongrass\n\
     coop Haldenbach: /coop\n\
     Beers\'n\'More: /beersnmore\n\
     Hot Pasta: /hotpasta\n\
     Jimmy\'s Pizza: /jimmy\n\
-    Cafe und Beck Buchmann: /beck\n
+    Cafe und Beck Buchmann: /beck\n\
     \n\n*Fragen oder Anregungen:*\n/feedback <Deine Nachricht>\n\n*Willst Du mithelfen?*\nSchau doch auf [GitHub](https://github.com/saidolsol/mensabot_js) vorbei :)';    
 
 var openingh = {
