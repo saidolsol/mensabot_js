@@ -31,3 +31,5 @@ alumni - Alumni quattro Lounge
 unipoint - Öffnungszeiten Döner Unipoint
 coop - Öffnungszeiten coop Haldenbach
 buchmann - Öffnungszeiten Cafe und Beck Buchmann
+lemongrass - Öffnungszeiten Lemon Grass Thai
+
