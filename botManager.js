@@ -35,7 +35,7 @@ function processOnText(msg, match) {
         "alumni": "Alumni quattro Lounge",
         "bellavista": "BELLAVISTA",
         "foodlab": "foodLAB",
-        "clausiusbar": "Clausiusbar",
+        "clausius": "Clausiusbar",
         "asia": "Clausiusbar",
         "fusion": "FUSION meal",
         "woka": "Woka",
