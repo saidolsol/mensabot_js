@@ -23,6 +23,7 @@ var help_msg = '*Verfügbare Mensen Zentrum:*\n\
     Abendmenüs gibt\'s ab 14:00 Uhr.\n\n\
 *Verfügbare Öffnungszeiten:*\n_Mit Vorsicht zu genießen!_\n\
     Klara\'s Kitchen: /klaras \n\
+    Äss-Bar: /aessbar\n\
     Unipoint Döner: /unipoint\n\
     Lemon Grass: /lemongrass\n\
     coop Haldenbach: /coop\n\
@@ -41,6 +42,7 @@ var openingh = {
     "coop": "*Öffnungszeiten coop Haldenbach:*\nMo-Sa: 07:30 bis 21:00 Uhr\nSonntags geschlossen",
     "lemongrass": "*Öffnungszeiten The Lemon Grass:*\nMo-Sa: 11:00 bis 15:30 Uhr\nAm Wochenende geschlossen",
     "unipoint": "*Öffnungszeiten Döner Unipoint:*\nMo-Fr: 08:30 bis 23:30 Uhr\nSa-So: 10:30 bis 22:00 Uhr",   
+    "aessbar": "*Öffnungszeiten Äss-Bar*\nETH Zentrum: Mi & Do von ca. 9:00-15:00\nHönggerberg: Mo & Fr von ca. 9:00-15:00",
     "how": "Ich laufe auf Node.js auf einem Server vom SOSETH. Die Menüs lade ich mir jeden tag als JSON bei der ETH runter. Alles weitere gibt\'s auf [GitHub](https://github.com/saidolsol/mensabot_js).",
     "help": help_msg,
     "start": help_msg

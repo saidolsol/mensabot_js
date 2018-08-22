@@ -32,4 +32,4 @@ unipoint - Öffnungszeiten Döner Unipoint
 coop - Öffnungszeiten coop Haldenbach
 buchmann - Öffnungszeiten Cafe und Beck Buchmann
 lemongrass - Öffnungszeiten Lemon Grass Thai
-
+aessbar - Öffnungszeiten der Äss-Bars Zentrum & H�ngg
