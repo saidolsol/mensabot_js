@@ -3,13 +3,14 @@ poly - Menü der Polymensa
 trailer - Menü des Foodtrailers
 clausius - Menü der CLAusiusbar
 fusion - Menü der Fusionmensa
-riceup - Menü von Rice Up!
+riceup - Menü vom Rice Up!
 tannenbar - Menü der Tannenbar
+foodlab - Menü des Foodlab
 grill - Menü vom food market grill bbQ
 pizzapasta - Menü vom food market pizza pasta
 green -  Menü food market green day
 dozentenfoyer - Menü des Dozentenfoyers
-uni - morgens die obere Mensa, nachmittags die untere
+uni - Mittags obere Uni, abends untere Uni
 uniunten - UZH Untere Mensa a
 unioben - UZH Obere Mensa b
 lichthof - UZH Lichthof Rondell
@@ -18,7 +19,6 @@ tierspital - UZH Tierspital
 zahnarzt - UZH Zentrum für Zahnmedizin
 platte - UZH Plattenstrasse
 raemi - UZH Rämi 59 (vegan)
-uni - Mittags obere Uni, abends untere Uni
 zhdk - ZHDK Toni-Areal
 klaras - Menü von Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
@@ -31,5 +31,5 @@ alumni - Alumni quattro Lounge
 unipoint - Öffnungszeiten Döner Unipoint
 coop - Öffnungszeiten coop Haldenbach
 buchmann - Öffnungszeiten Cafe und Beck Buchmann
-lemongrass - Öffnungszeiten Lemon Grass Thai
-aessbar - Öffnungszeiten der Äss-Bars Zentrum & H�ngg
+lemongrass - Öffnungszeiten The Lemon Grass
+aessbar - Öffnungszeiten Äss-Bars Zentrum & Höngg
