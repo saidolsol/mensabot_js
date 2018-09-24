@@ -26,7 +26,9 @@ function get_uni() {
         "UZH untere Mensa A (abend)": 149,
         "UZH Irchel (abend)": 256
     };
-    var weekday = new Date().getDay();
+    var date = new Date();
+    date.setHours(date.getHours() + 6);
+    var weekday = date.getDay();
 
     for (var mensa in menu_ids) {
         requests++;
