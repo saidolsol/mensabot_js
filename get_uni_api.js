@@ -85,7 +85,6 @@ function makeObject(body, isDinner, mensaName) {
             label: "zentrum"
         }
     };
-
     if (isDinner) thisMensa.daytime = "dinner";
 
     parseString(body, function (err, result) {
@@ -102,12 +101,16 @@ function makeObject(body, isDinner, mensaName) {
                 if (result.h3[i].span[0]._)
                     currentMeal.label =
                     currentMeal.label + " " + result.h3[i].span[0]._.trim();
-                currentMeal.description.push(
-                    result.p[i]._
-                    .trim()
-                    .replace(/  +/g, " ") //replace two or more spaces with one space
-                    .replace("\n \n", "\n")
-                );
+                if (result.p[i]._) {
+                    currentMeal.description.push(
+                        result.p[i]._
+                        .trim()
+                        .replace(/  +/g, " ") //replace two or more spaces with one space
+                        .replace("\n \n", "\n"));
+                } else {
+                    console.error("this is problem: " + mensaName);
+                }
+                
                 thisMensa.meals.push(currentMeal);
             }
         }
