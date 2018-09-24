@@ -21,7 +21,7 @@ function get_uni() {
         "UZH Tierspital": 146,
         "UZH Zentrum Für Zahnmedizin": 151,
         "UZH Platte": 143,
-        "UZH Rämi 59 (vegi)": 346,
+        "UZH Rämi 59 (vegan)": 346,
         "ZHDK Toni-Areal": 333,
         "UZH untere Mensa A (abend)": 149,
         "UZH Irchel (abend)": 256

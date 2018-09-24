@@ -28,6 +28,7 @@ function processOnText(msg, match) {
 
     //Translates the simple command to the often more complex name of the cafeteria in the JSON file
     var dict = {
+        "foodlab":"food&lab",
         "beck": "buchmann",
         "cliff": "Clausiusbar",
         "haoyi": "Woka",
@@ -56,7 +57,7 @@ function processOnText(msg, match) {
         'zahnarzt': 'UZH Zentrum Für Zahnmedizin',
         'tierspital': 'UZH Tierspital',
         'platte': 'UZH Platte',
-        'raemi': 'UZH Rämi 59 (vegi)',
+        'raemi': 'UZH Rämi 59 (vegan)',
         'zhdk': 'ZHDK Toni-Areal',
         'uni': "UZH obere Mensa B"
     };
