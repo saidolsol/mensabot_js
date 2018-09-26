@@ -2,6 +2,7 @@ var help_msg = '*Verfügbare Mensen Zentrum:*\n\
     Mensa Polyterasse: /poly \n\
     Food Trailer: /trailer \n\
     CLAusiusbar: /clausius\n\
+    food&lab: /foodlab\n\
     Polysnack: /polysnack\n\
     G-ESSbar: /gessbar\n\
     Tannenbar: /tannenbar\n\
