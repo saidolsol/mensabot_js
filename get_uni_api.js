@@ -27,7 +27,7 @@ function get_uni() {
         "UZH Irchel (abend)": 256
     };
     var date = new Date();
-    date.setHours(date.getHours() + 6);
+    date.setHours(date.getHours() + 3);
     var weekday = date.getDay();
 
     for (var mensa in menu_ids) {

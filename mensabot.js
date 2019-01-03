@@ -9,7 +9,7 @@ function call_menus() {
     var get_ethabig = require('./get_ethabig');
     //URL für heute generieren
     var date = new Date();
-    date.setHours(date.getHours() + 6);
+    date.setHours(date.getHours() + 3);
     date = date.toISOString().split('T')[0];
     var url_lunch = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/lunch';
     var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/dinner';
