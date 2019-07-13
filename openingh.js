@@ -42,7 +42,7 @@ var openingh = {
     "jimmy": "*Öffnungszeiten Restaurant Culmann:*\nMo-Sa: 11:00 - 14:30, 17:00 - 23:00 Uhr\nSonntags geschlossen",
     "coop": "*Öffnungszeiten coop Haldenbach:*\nMo-Sa: 07:30 bis 21:00 Uhr\nSonntags geschlossen",
     "lemongrass": "*Öffnungszeiten The Lemon Grass:*\nMo-Sa: 11:00 bis 15:30 Uhr\nAm Wochenende geschlossen",
-    "unipoint": "*Öffnungszeiten Döner Unipoint:*\nMo-Fr: 98:30 bis 23:00 Uhr\nSa: gsechlossen\nSo: 10:00 bis 22:00 Uhr",   
+    "unipoint": "*Öffnungszeiten Döner Unipoint:*\nMo-Fr: 09:30 bis 23:00 Uhr\nSa: geschlossen\nSo: 10:00 bis 22:00 Uhr",   
     "aessbar": "*Öffnungszeiten Äss-Bar*\nETH Zentrum: Mi & Do von ca. 9:00-15:00\nHönggerberg: Mo & Fr von ca. 9:00-15:00",
     "how": "Ich laufe auf Node.js auf einem Server vom SOSETH. Die Menüs lade ich mir jeden tag als JSON bei der ETH runter. Alles weitere gibt\'s auf [GitHub](https://github.com/saidolsol/mensabot_js).",
     "help": help_msg,
