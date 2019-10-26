@@ -118,15 +118,21 @@ function processOnText(msg, match) {
 
         if (command in openingh) {
             resp = openingh[command];
+
+            var menu = require('./klaras.json');
+
             if (command === "klaras") {
-                var menu = require('./klaras.json');
-                if (menu && menu.length > 0) {
-                    resp += "\n*facebook feed:*";
-                    for (var i = 0; i < 3; i++) {
-                        var date = new Date(menu[i].created_time);
-                        resp += "\n_" + date.toDateString() + ", " + date.getHours() + ':' + date.getMinutes() + "_\n";
-                        resp += menu[i].message.replace(/\n/g, ' ') + "\n";
+                if(variables.useFacebookApi){
+                    if (menu && menu.length > 0) {
+                        resp += "\n*facebook feed:*";
+                        for (var i = 0; i < 3; i++) {
+                            var date = new Date(menu[i].created_time);
+                            resp += "\n_" + date.toDateString() + ", " + date.getHours() + ':' + date.getMinutes() + "_\n";
+                            resp += menu[i].message.replace(/\n/g, ' ') + "\n";
+                        }
                     }
+                } else {
+                    resp += "\n" + menu;
                 }
             }
 
