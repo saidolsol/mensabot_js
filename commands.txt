@@ -9,6 +9,9 @@ foodlab - Menü des Foodlab
 grill - Menü vom food market grill bbQ
 pizzapasta - Menü vom food market pizza pasta
 green -  Menü food market green day
+fusioncoffee - Fusion Coffee
+streetzentrum - Streetfood Zentrum
+streethoengg - Streetfood Höngg
 dozentenfoyer - Menü des Dozentenfoyers
 uni - Mittags obere Uni, abends untere Uni
 uniunten - UZH Untere Mensa a
@@ -19,7 +22,13 @@ tierspital - UZH Tierspital
 zahnarzt - UZH Zentrum für Zahnmedizin
 platte - UZH Plattenstrasse
 raemi - UZH Rämi 59 (vegan)
+seerose - Cafeteria Seerose
+atrium - Cafeteria Atrium
 zhdk - ZHDK Toni-Areal
+ph - PH Zürich
+cityport - Cafeteria cityport
+botanisch - Botanischer Garten
+binzmuehle - Binzmühle
 klaras - Menü von Klara's Kitchen
 hotpasta - Öffnungszeiten Hot Pasta
 beersnmore - Öffnungszeiten Beers'n More

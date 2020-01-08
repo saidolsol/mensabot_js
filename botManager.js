@@ -3,68 +3,149 @@ var separator = '###############################################################
 var respId = 0;
 var variables = require('./variables');
 var feedback_chatId = variables['feedback_chatId'];
+const mensas = require('./mensas.json')
+const openingh = require('./openingh');
+
+//Translates the simple command to the often more complex name of the cafeteria in the JSON file
+const dict = {
+    "foodlab":"food&lab",
+    "beck": "buchmann",
+    "cliff": "Clausiusbar",
+    "haoyi": "Woka",
+    "poly": "Mensa Polyterrasse",
+    "polysnack": "Polysnack",
+    "gessbar": "G-ESSbar",
+    "alumni": "Alumni quattro Lounge",
+    "bellavista": "BELLAVISTA",
+    "riceup": "Rice Up!",
+    "clausiusbar": "Clausiusbar",
+    "clausius": "Clausiusbar",
+    "asia": "Clausiusbar",
+    "fusion": "FUSION meal",
+    "tannenbar": "Tannenbar",
+    "trailer": "Foodtrailer ETZ",
+    "dozentenfoyer": "Dozentenfoyer",
+    "grill": "food market - grill bbQ",
+    "pizzapasta": "food market - pizza pasta",
+    "green": "food market - green day",
+    'uniunten': 'Untere Mensa A',
+    'unia': 'Untere Mensa A',
+    'unioben': 'Obere Mensa B',
+    'unib': 'Obere Mensa B',
+    'lichthof': 'Lichthof',
+    'irchel': 'Irchel',
+    'zahnarzt': 'Zentrum Für Zahnmedizin',
+    'tierspital': 'Tierspital',
+    'platte': 'Platte',
+    'raemi': "Rämi 59 (vegan)",
+    'zhdk': 'ZHDK Toni-Areal',
+    'uni': "Obere Mensa B",
+    'binzmuehle': "Binzmühle",
+    'botanisch': "Botanischer Garten",
+    'atrium': "Cafeteria Atrium",
+    'cityport': "Cafeteria Cityport",
+    'seerose': "Cafeteria Seerose",
+    'fusioncoffee': "FUSION coffee",
+    'klaras': "Klaras Kitchen",
+    'ph': "PH Zürich (HB)",
+    'streetzentrum': "Streetfood Zentrum",
+    'streethoengg': "Streetfood Höngg"
+};
+
+function responseText(command, sentCommand) {
+    if (command in openingh) {
+        return openingh[command];
+    }
+    //Mensa
+    else if (command in mensas) {
+        var date = new Date();
+        var isdinner = false;
+        var dinnerstring = " _Mittag_";
+        if (date.getHours() >= 14) {
+            isdinner = true;
+            if (sentCommand === 'uni'){
+                command = 'Untere Mensa A';
+            }
+        }    
+        date.setHours(date.getHours() + 3);
+        const datestring = date.toISOString().split('T')[0];
+        var menus = {}
+        if (Object.keys(mensas[command].weekdays).length === 0){
+            return "Diese Mensa hat heute kein Menu zur Verfügung gestellt. 😢\n" +
+            "Oder der mensabot ist wiedermal kaputt...\n" +
+            "/help für andere Verpflegungsmöglichkeiten";
+        }
+        if (mensas[command].weekdays[datestring].mealTypes.all_day){
+            menus = mensas[command].weekdays[datestring].mealTypes.all_day
+            var dinnerstring = " _All Day_";
+        }
+        if (mensas[command].weekdays[datestring].mealTypes.lunch){
+            menus = mensas[command].weekdays[datestring].mealTypes.lunch
+            var dinnerstring = " _Mittag_";
+        }
+        if (isdinner) {
+            if (mensas[command].weekdays[datestring].mealTypes.dinner){
+                menus = mensas[command].weekdays[datestring].mealTypes.dinner
+                dinnerstring = " _Abend_"
+            }
+        }
+        if (Object.keys(menus).length === 0){
+            return "Diese Mensa hat heute kein Menu zur Verfügung gestellt. 😢\n" +
+            "Oder der mensabot ist wiedermal kaputt...\n" +
+            "/help für andere Verpflegungsmöglichkeiten";
+        }
+        if (menus.hours.from != null || menus.hours.to != null) {
+            resp = `*${mensas[command].name}* _${menus.hours.from}-${menus.hours.to}_\n`;
+        }
+        else {
+            resp = `*${mensas[command].name}*${dinnerstring}\n`;
+        }
+        
+        for (const meal of menus.menus){
+            prices = "_(";
+            for (const price in meal.prices){
+                if(meal.prices.hasOwnProperty(price)){
+                    prices += `${meal.prices[price]}/`;
+                }
+            }
+            // remove last '/'
+            prices = prices.slice(0, -1);
+            prices += ")_";
+            if (prices === "_)_") {
+                prices = "";
+            }
+
+            description = "";
+            for (var i = 0; i < meal.description.length; i++) {
+                if (meal.description[i].trim() !== "") {
+                    description += `${meal.description[i].trim()} `;
+                    if (i === 0) {description += "\n"}
+                }
+            }
+
+            resp += `\n*${meal.name}* ${prices}:\n${description}`;
+        }
+        return resp;
+
+    } else if (sentCommand in dict) {
+        //mensa sollte vorhanden sein, ist aber nicht im json
+        return "Diese Mensa hat heute kein Menu zur Verfügung gestellt. 😢\n" +
+        "Oder der mensabot ist wiedermal kaputt...\n" +
+        "/help für andere Verpflegungsmöglichkeiten";
+    } else {
+        return "Ungültige mensa, siehe /help";
+    }
+}
 
 function processOnText(msg, match) {
     var resp = "";
     var timestamp = new Date();
     var messagesToSend = [];
-    var openingh = require('./openingh');
     var chatId = msg.chat.id;
     var respType = "text";
     //console.log(msg);
 
-    //Cafeterias serving dinner
-    var dinner_dict = {
-        "poly": "Mensa Polyterrasse",
-        "pizzapasta": "food market - pizza pasta",
-        "green": "food market - green day",
-        "grill": 'food market - grill bbQ',
-        "fusion": "FUSION coffee",
-        "irchel": "UZH Irchel (abend)",
-        "uniunten": "UZH untere Mensa A (abend)",
-        "unia": "UZH untere Mensa A (abend)",
-        "uni": "UZH untere Mensa A (abend)"
-    }
-
-    //Translates the simple command to the often more complex name of the cafeteria in the JSON file
-    var dict = {
-        "foodlab":"food&lab",
-        "beck": "buchmann",
-        "cliff": "Clausiusbar",
-        "haoyi": "Woka",
-        "poly": "Mensa Polyterrasse",
-        "polysnack": "Polysnack",
-        "gessbar": "G-ESSbar",
-        "alumni": "Alumni quattro Lounge",
-        "bellavista": "BELLAVISTA",
-        "riceup": "Rice Up!",
-        "clausiusbar": "Clausiusbar",
-        "clausius": "Clausiusbar",
-        "asia": "Clausiusbar",
-        "fusion": "FUSION meal",
-        "tannenbar": "Tannenbar",
-        "trailer": "Foodtrailer ETZ",
-        "dozentenfoyer": "Dozentenfoyer",
-        "grill": "food market - grill bbQ",
-        "pizzapasta": "food market - pizza pasta",
-        "green": "food market - green day",
-        'uniunten': 'UZH untere Mensa A',
-        'unia': 'UZH untere Mensa A',
-        'unioben': 'UZH obere Mensa B',
-        'unib': 'UZH obere Mensa B',
-        'lichthof': 'UZH Lichthof',
-        'irchel': 'UZH Irchel',
-        'zahnarzt': 'UZH Zentrum Für Zahnmedizin',
-        'tierspital': 'UZH Tierspital',
-        'platte': 'UZH Platte',
-        'raemi': 'UZH Rämi 59 (vegan)',
-        'zhdk': 'ZHDK Toni-Areal',
-        'uni': "UZH obere Mensa B"
-    };
-
     //Feedback
-
-
     if (match[0].indexOf('/feedback') != -1 || match[0].indexOf('/respond') != -1) {
         var authorized = ["gingeneer", "saidolsol"];
         if (match[0] === '/feedback' || match[0] === '/feedback@zurimensen_bot') {
@@ -82,6 +163,7 @@ function processOnText(msg, match) {
                 type: "text",
                 message: 'New feedback:\n\n' + JSON.stringify(msg, null, 4)
             });
+            fs.writeFileSync("./respId.txt", respId.toString());
         }
         //respond to feedback:
         else if (match[0].indexOf('/respondid') != -1 && authorized.indexOf(msg.from.username) != -1) {
@@ -92,8 +174,8 @@ function processOnText(msg, match) {
 
             resp = match[0].split('respond');
             resp = resp[1];
-
-            chatId = respId;
+            respId = fs.readFileSync("./respId.txt", "utf8");
+            chatId = parseInt(respId);
         }
     } else {
         //Chopping '@...' from the command if needed
@@ -101,105 +183,15 @@ function processOnText(msg, match) {
         command = command[0];
         console.log(command);
         var sentCommand = command;
-        var mensas = {}
         //Nicht ideal weil ja nicht ein Strang, aber funktioniert so weit ganz gut (denke ich):
         //Checking whether a cafeteria has dinner and if its late enough to display the dinner menu
-        if (command in dinner_dict && timestamp.getHours() >= 14) {
-            command = dinner_dict[command];
-            mensas = require('./mensas_abig.json');
-            var t = 1;
-            //Checking whether its a known cafeteria
-        } else if (command in dict) {
+        if (command in dict) {
             command = dict[command];
-            mensas = require('./mensas.json');
-            var t = 0;
-            //...help/start, opening hours
         }
-
-        if (command in openingh) {
-            resp = openingh[command];
-
-            var menu = require('./klaras.json');
-
-            if (command === "klaras") {
-                if(variables.useFacebookApi){
-                    if (menu && menu.length > 0) {
-                        resp += "\n*facebook feed:*";
-                        for (var i = 0; i < 3; i++) {
-                            var date = new Date(menu[i].created_time);
-                            resp += "\n_" + date.toDateString() + ", " + date.getHours() + ':' + date.getMinutes() + "_\n";
-                            resp += menu[i].message.replace(/\n/g, ' ') + "\n";
-                        }
-                    }
-                } else {
-                    resp += "\n" + menu;
-                }
-            }
-
-        }
-        //Mensa
-        else if (command in mensas) {
-
-            resp = "*" + command + "*\n";
-            if (mensas[command].hours.mealtime[t] && !mensas[command].hours.mealtime[t]['hardcoded']) {
-                resp += "_Essen von " + mensas[command].hours.mealtime[t]["from"] + " bis " + mensas[command].hours.mealtime[t]["to"] + " Uhr_\n\n";
-            } else {
-                resp += "\n";
-            }
-            if (mensas[command].hours.closed_due) {
-                resp += "*wegen " + mensas[command].hours.closed_due + " geschlossen!*\n\n";
-            }
-
-
-            for (var meal in mensas[command]["meals"]) {
-                var description = "";
-                for (i in mensas[command]["meals"][meal]["description"]) {
-                    description += mensas[command]["meals"][meal]["description"][i] + " ";
-                    if (i === "0" && mensas[command]["meals"][meal]["description"].length > 1) {
-                        description += "\n";
-                    }
-                }
-                if (mensas[command]['meals'][meal]['prices']['student'] == undefined) {
-                    resp += "*" + mensas[command]["meals"][meal]["label"] + ":*\n" + description.replace("*", "(star)") + "\n";
-                } else {
-                    resp += "*" + mensas[command]["meals"][meal]["label"] + " (" + mensas[command]["meals"][meal]["prices"]["student"] + "/" + mensas[command]["meals"][meal]["prices"]["staff"] + "/" + mensas[command]["meals"][meal]["prices"]["extern"] + "):*\n" + description.replace("*", "(star)") + "\n";
-                }
-
-            }
-        } else if (command === "svensh") {
-            try {
-                var svenshMenu = JSON.parse(fs.readFileSync('./svensh.json', 'utf8'));
-                if (new Date(svenshMenu.updated).toDateString() == new Date().toDateString() && svenshMenu.menu != '') {
-                    //zum am david per zuefall (10%) e freud mache
-                    if (Math.random() < 0.1) {
-                        resp = "*svenshboob's Kitchen:*\n" + svenshMenu.menu;
-                    } else {
-                        resp = "*svenshbob's Kitchen:*\n" + svenshMenu.menu;
-                    }
-                } else {
-                    resp = "No svensh menu today 😢";
-                }
-            } catch (err) {
-                resp = "No svensh menu today 😢";
-            }
-
-        } else if (command.includes("setsvensh") && msg.from.username === "svenshbob") {
-            var svenshMenu = {};
-            svenshMenu['menu'] = msg.text.replace('/setsvensh', '').trim();
-            svenshMenu['updated'] = new Date().toJSON();
-            fs.writeFileSync("./svensh.json", JSON.stringify(svenshMenu));
-            resp = "Svensh Menu updated to: " + svenshMenu.menu;
-
-        } else if (sentCommand in dict) {
-            //mensa sollte vorhanden sein, ist aber nicht im json
-            resp = "Diese Mensa hat kein Menu zur Verfügung gestellt, vermutlich ist sie heute geschlossen. 😢"
-        } else {
-            return;
-        }
+        resp = responseText(command, sentCommand);
     }
 
-    //dirty hack to remove ` in file because of errors with Markdown
-    //sometimes they have ` in their menu, replace it with '
+    //sometimes they have ` in their menu, replace it with ' (breaks markdown)
     if (respType === "text") resp = resp.replace(/`/g, '\'');
 
     messagesToSend.push({

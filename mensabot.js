@@ -3,22 +3,6 @@ var fs = require('fs');
 var botManager = require('./botManager.js');
 var variables = require('./variables');
 
-
-//Holt die Menüs der ETH- und Uni Mensen
-function call_menus() {
-    var get_ethabig = require('./get_ethabig');
-    //URL für heute generieren
-    var date = new Date();
-    date.setHours(date.getHours() + 3);
-    date = date.toISOString().split('T')[0];
-    var url_lunch = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/lunch';
-    var url_dinner = 'https://www.webservices.ethz.ch/gastro/v1/RVRI/Q1E1/meals/de/' + date + '/dinner';
-    //call eth menu, which denn calls uni
-    get_ethabig.get_ethabig(url_dinner, url_lunch);
-    var get_klaras = require('./get_klaras');
-    get_klaras.get_klaras();
-}
-
 function log_csv(msg, match){
     if (!fs.existsSync("./stats.csv")){
         fs.writeFileSync("./stats.csv", "user,request,time,is_groupchat" + "\n");
@@ -33,7 +17,8 @@ function log_csv(msg, match){
 }
 
 //Damit die Menüs bei jedem Programmstart aktualisiert werden
-call_menus();
+var get_all = require('./get_all');
+get_all.get_all();
 
 var token = variables['token'];
 
@@ -54,11 +39,7 @@ bot.onText(/\/(.+)/, function (msg, match) {
 
         var message = messageToSend[i];
 
-
         console.log(message);
-
-
-
         if (message.type === "text") {
             bot.sendMessage(message.chatId, message.message, message.options).then(function (message) {
                 console.log('Message sent');
@@ -75,6 +56,7 @@ bot.onText(/\/(.+)/, function (msg, match) {
                 i++;
             });
         }
+        // no longer used
         else if (message.type === "video") {
             bot.sendVideo(message.chatId, message.message).then(function (message) {
                 console.log('Message sent');
