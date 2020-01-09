@@ -95,10 +95,10 @@ function responseText(command, sentCommand) {
             "/help für andere Verpflegungsmöglichkeiten";
         }
         if (menus.hours.from != null || menus.hours.to != null) {
-            resp = `*${mensas[command].name}* _${menus.hours.from}-${menus.hours.to}_\n`;
+            resp = `*${mensas[command].name}*  _${menus.hours.from}-${menus.hours.to}_`;
         }
         else {
-            resp = `*${mensas[command].name}*${dinnerstring}\n`;
+            resp = `*${mensas[command].name}* ${dinnerstring}`;
         }
         
         for (const meal of menus.menus){
@@ -114,16 +114,30 @@ function responseText(command, sentCommand) {
             if (prices === "_)_") {
                 prices = "";
             }
-
-            description = "";
-            for (var i = 0; i < meal.description.length; i++) {
-                if (meal.description[i].trim() !== "") {
-                    description += `${meal.description[i].trim()} `;
-                    if (i === 0) {description += "\n"}
+            if (meal.name.includes("News")) {
+                description = "";
+                for (var i = 0; i < meal.description.length; i++) {
+                    if (meal.description[i].trim() !== "") {
+                        description += `${meal.description[i].trim()} `;
+                        if (i === 0) {description += "\n"}
+                    }
                 }
+                resp += `\n\n*${meal.name}*:   ${prices}\n${description}`;
             }
+            else {
+                description = "";
+                for (var i = 0; i < meal.description.length; i++) {
+                    if (meal.description[i].trim() !== "") {
+                        if (i === 0) {description += "*"}
+                        description += `${meal.description[i].trim()} `;
+                        if (i === 0) {description += "*"}
+                        if (i === 0 && meal.description.length > 1) {description += "\n"}
+                    }
+                }
 
-            resp += `\n*${meal.name}* ${prices}:\n${description}`;
+                resp += `\n\n${meal.name}:  ${prices}\n${description}`;
+                }
+            
         }
         return resp;
 
@@ -192,7 +206,7 @@ function processOnText(msg, match) {
     }
 
     //sometimes they have ` in their menu, replace it with ' (breaks markdown)
-    if (respType === "text") resp = resp.replace(/`/g, '\'');
+    //if (respType === "text") resp = resp.replace(/`/g, '\'');
 
     messagesToSend.push({
         chatId: chatId,

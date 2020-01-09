@@ -28,7 +28,7 @@ var bot = new TelegramBot(token, { polling: true });
 //Das hier passiert sobald der Bot eine Nachricht bekommt:
 bot.onText(/\/(.+)/, function (msg, match) {
 
-    console.log('onText: ');
+    // console.log('onText: ');
 
     log_csv(msg, match);
     var messageToSend = botManager.processOnText(msg, match);
